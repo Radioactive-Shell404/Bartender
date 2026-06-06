@@ -26,7 +26,7 @@ const I18N = {
     saved_add: 'Salva', saved_remove: 'Rimuovi dai salvati', toast_saved: 'Ricetta salvata', toast_unsaved: 'Ricetta rimossa dai salvati', toast_list_added: 'Aggiunta alla lista', toast_list_removed: 'Rimossa dalla lista', toast_list_created: 'Lista creata', toast_list_deleted: 'Lista eliminata', toast_recipe_created: 'Ricetta personale salvata', toast_recipe_deleted: 'Ricetta personale eliminata', toast_profile: 'Profilo aggiornato', toast_export: 'Backup esportato', toast_import: 'Backup importato', toast_invalid_import: 'File di backup non valido', toast_shared: 'Link copiato', toast_install_unavailable: 'Apri il menu del browser e scegli “Aggiungi a schermata Home”.', confirm_delete_list: 'Eliminare questa lista?', confirm_delete_recipe: 'Eliminare questa ricetta personale?',
     online: 'Online', offline: 'Offline', custom: 'Personale', recipes_count: 'ricette', one_recipe: 'ricetta', no_garnish: 'Nessuna', optional: 'opzionale',
     types: { classic: 'Classico', cocktail: 'Cocktail', longdrink: 'Long drink', shot: 'Shot', mocktail: 'Analcolico', hot: 'Caldo' },
-    techniques: { shaken: 'Shakerato', stirred: 'Mescolato', built: 'Diretto', blended: 'Frullato', muddled: 'Pestato', 'dry-shake': 'Dry shake', layered: 'A strati' },
+    techniques: { shaken: 'Shaken', stirred: 'Stirred', built: 'Built', blended: 'Blended', muddled: 'Muddled', 'dry-shake': 'Dry shake → Shake with ice', layered: 'Layered' },
     origins: { italy: 'Italia', usa: 'USA', uk: 'Regno Unito', france: 'Francia', cuba: 'Cuba', mexico: 'Messico', brazil: 'Brasile', spain: 'Spagna', germany: 'Germania', ireland: 'Irlanda', belgium: 'Belgio', canada: 'Canada', japan: 'Giappone', singapore: 'Singapore', malaysia: 'Malesia', jamaica: 'Giamaica', peru: 'Perù', bermuda: 'Bermuda', bahamas: 'Bahamas', 'puerto-rico': 'Porto Rico', 'british-virgin-islands': 'Isole Vergini Britanniche', argentina: 'Argentina', portugal: 'Portogallo', egypt: 'Egitto', asia: 'Asia', international: 'Internazionale' },
     unitsMap: { ml: 'ml', cl: 'cl', oz: 'oz', dash: 'dash', rinse: 'risciacquo', leaf: 'foglie', piece: 'pezzi', whole: 'intero', tsp: 'cucchiaini', pinch: 'pizzico', slice: 'fette', top: 'top' }
   },
@@ -44,7 +44,7 @@ const I18N = {
     saved_add: 'Save', saved_remove: 'Remove from saved', toast_saved: 'Recipe saved', toast_unsaved: 'Recipe removed from saved', toast_list_added: 'Added to list', toast_list_removed: 'Removed from list', toast_list_created: 'List created', toast_list_deleted: 'List deleted', toast_recipe_created: 'Personal recipe saved', toast_recipe_deleted: 'Personal recipe deleted', toast_profile: 'Profile updated', toast_export: 'Backup exported', toast_import: 'Backup imported', toast_invalid_import: 'Invalid backup file', toast_shared: 'Link copied', toast_install_unavailable: 'Open the browser menu and choose “Add to Home Screen”.', confirm_delete_list: 'Delete this list?', confirm_delete_recipe: 'Delete this personal recipe?',
     online: 'Online', offline: 'Offline', custom: 'Personal', recipes_count: 'recipes', one_recipe: 'recipe', no_garnish: 'None', optional: 'optional',
     types: { classic: 'Classic', cocktail: 'Cocktail', longdrink: 'Long drink', shot: 'Shot', mocktail: 'Alcohol-free', hot: 'Hot' },
-    techniques: { shaken: 'Shaken', stirred: 'Stirred', built: 'Built', blended: 'Blended', muddled: 'Muddled', 'dry-shake': 'Dry shake', layered: 'Layered' },
+    techniques: { shaken: 'Shaken', stirred: 'Stirred', built: 'Built', blended: 'Blended', muddled: 'Muddled', 'dry-shake': 'Dry shake → Shake with ice', layered: 'Layered' },
     origins: { italy: 'Italy', usa: 'USA', uk: 'United Kingdom', france: 'France', cuba: 'Cuba', mexico: 'Mexico', brazil: 'Brazil', spain: 'Spain', germany: 'Germany', ireland: 'Ireland', belgium: 'Belgium', canada: 'Canada', japan: 'Japan', singapore: 'Singapore', malaysia: 'Malaysia', jamaica: 'Jamaica', peru: 'Peru', bermuda: 'Bermuda', bahamas: 'Bahamas', 'puerto-rico': 'Puerto Rico', 'british-virgin-islands': 'British Virgin Islands', argentina: 'Argentina', portugal: 'Portugal', egypt: 'Egypt', asia: 'Asia', international: 'International' },
     unitsMap: { ml: 'ml', cl: 'cl', oz: 'oz', dash: 'dash', rinse: 'rinse', leaf: 'leaves', piece: 'pieces', whole: 'whole', tsp: 'tsp', pinch: 'pinch', slice: 'slices', top: 'top' }
   }
@@ -158,6 +158,27 @@ function typeLabel(type) {
 
 function techniqueLabel(technique) {
   return I18N[state.language].techniques[technique] || technique;
+}
+
+const RECIPE_IMAGE_FALLBACK = './images/drinks/placeholder.svg';
+
+function recipeImagePath(recipe) {
+  if (!recipe?.image) return RECIPE_IMAGE_FALLBACK;
+  return recipe.image.startsWith('.') ? recipe.image : `./${recipe.image}`;
+}
+
+function applyRecipeImage(image, recipe, { eager = false } = {}) {
+  image.src = recipeImagePath(recipe);
+  image.alt = text(recipe.name);
+  image.loading = eager ? 'eager' : 'lazy';
+  image.decoding = 'async';
+  image.classList.toggle('is-placeholder', !recipe.image);
+  image.addEventListener('error', () => {
+    if (image.src.endsWith('placeholder.svg')) return;
+    image.src = RECIPE_IMAGE_FALLBACK;
+    image.classList.add('is-placeholder');
+  }, { once: true });
+  return image;
 }
 
 function recipeSearchText(recipe) {
@@ -280,16 +301,19 @@ function createRecipeCard(recipe, listContext = null) {
     attrs: { 'aria-label': `${tr('recipe')}: ${text(recipe.name)}` },
     onclick: () => openRecipe(recipe.slug)
   });
+  const image = applyRecipeImage(makeElement('img', { class: 'recipe-card-image' }), recipe);
+  const media = makeElement('div', { class: `recipe-card-media${recipe.image ? '' : ' is-placeholder'}` }, [image]);
   const top = makeElement('div', { class: 'recipe-card-top' }, [
     makeElement('span', { class: `type-pill ${recipe.type}`, text: recipe.custom ? tr('custom') : typeLabel(recipe.type) }),
     makeElement('span', { class: 'card-abv', text: `${Number(recipe.abv || 0)}% ABV` })
   ]);
-  main.append(
+  const content = makeElement('div', { class: 'recipe-card-content' }, [
     top,
     makeElement('h3', { text: text(recipe.name) }),
     makeElement('div', { class: 'card-origin', text: `${originLabel(recipe.origin)} · ${text(recipe.glass)}` }),
     makeElement('p', { class: 'card-ingredients', text: recipe.ingredients.map(ingredientName).join(', ') })
-  );
+  ]);
+  main.append(media, content);
   const bookmark = makeElement('button', {
     class: `card-icon-btn${saved ? ' active' : ''}`, type: 'button', text: saved ? '◆' : '◇',
     attrs: { 'aria-label': saved ? tr('saved_remove') : tr('saved_add'), title: saved ? tr('saved_remove') : tr('saved_add') },
@@ -309,6 +333,8 @@ function openRecipe(slug, updateHash = true) {
   const recipe = recipeBySlug(slug);
   if (!recipe) return;
   state.activeRecipe = slug;
+  applyRecipeImage($('#detail-image'), recipe, { eager: true });
+  $('#detail-image-shell').classList.toggle('is-placeholder', !recipe.image);
   $('#detail-type').textContent = recipe.custom ? tr('custom') : typeLabel(recipe.type);
   $('#detail-name').textContent = text(recipe.name);
   const meta = $('#detail-meta');
@@ -325,7 +351,7 @@ function openRecipe(slug, updateHash = true) {
       makeElement('span', { text: ingredientName(item) })
     ]));
   });
-  $('#detail-technique').textContent = techniqueLabel(recipe.technique);
+  $('#detail-technique').textContent = text(recipe.preparation) || techniqueLabel(recipe.technique);
   $('#detail-garnish').textContent = text(recipe.garnish) || tr('no_garnish');
   $('#detail-notes').textContent = text(recipe.notes);
   updateDetailSaveButton();

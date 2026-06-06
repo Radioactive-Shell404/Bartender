@@ -14,7 +14,7 @@ Poi apri `http://localhost:8000`.
 
 ## Pubblicazione GitHub Pages
 
-1. Copia tutti i file nella root del repository mantenendo le cartelle `.github`, `icons` e `scripts`.
+1. Copia tutti i file nella root del repository mantenendo le cartelle `.github`, `icons`, `images` e `scripts`.
 2. In GitHub apri **Settings → Pages**.
 3. Come sorgente seleziona **GitHub Actions**.
 4. Esegui un push su `main`.
@@ -27,6 +27,7 @@ La workflow valida automaticamente `recipes.json`, controlla la sintassi JavaScr
 - `styles.css`: tema responsive chiaro/scuro.
 - `app.js`: ricerca per nome, filtri, preferiti, liste, profilo, backup e PWA.
 - `recipes.json`: unico database con 200 ricette complete.
+- `images/drinks`: immagini WebP e placeholder delle ricette.
 - `manifest.webmanifest` e `service-worker.js`: installazione e uso offline.
 - `scripts/validate-recipes.mjs`: validazione eseguita da GitHub Actions.
 
@@ -38,3 +39,18 @@ La workflow valida automaticamente `recipes.json`, controlla la sintassi JavaScr
 - Aggiunti i 27 cocktail mancanti dalla lista IBA confrontata nel giugno 2026.
 - Aggiunti Long Island Iced Tea, Tokyo Iced Tea, Electric Iced Tea, Gin Tonic, Vodka Tonic, Gin Lemon, Vodka Lemon e Screwdriver.
 - Aggiunte variazioni alla fragola e tropicali di Daiquiri, Caipiroska, Mojito e Margarita.
+
+## Aggiornamento v1.4.0
+
+- Supporto immagini nelle card e nella scheda dettagli.
+- Primo set di 10 immagini originali in WebP per Negroni, Margarita, Mojito, Whiskey Sour, Espresso Martini, Paloma, White Russian, Tequila Sunrise, Long Island Iced Tea e Tokyo Iced Tea.
+- Placeholder coerente per le ricette ancora senza fotografia.
+- Immagini caricate in lazy loading nelle card e memorizzate dalla PWA solo quando servono.
+- Validazione automatica dei percorsi immagine durante GitHub Actions.
+
+### Aggiungere altre immagini
+
+1. Salva l’immagine in `images/drinks/<slug>.webp`.
+2. Aggiungi alla ricetta: `"image": "images/drinks/<slug>.webp"`.
+3. Esegui `node scripts/validate-recipes.mjs`.
+

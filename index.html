@@ -194,7 +194,7 @@
           <p class="eyebrow" data-i18n="about">Informazioni</p>
           <h2>Bar Atlas</h2>
           <p class="muted" data-i18n="about_text">Le dosi sono indicazioni standard: ricette e gradazioni possono variare in base ai prodotti usati. Bevi responsabilmente.</p>
-          <p class="version">v1.2.0 · <span id="data-version">200</span> ricette</p>
+          <p class="version">v1.4.0 · <span id="data-version">200</span> ricette</p>
         </article>
       </div>
     </section>
@@ -209,6 +209,9 @@
 
   <dialog class="modal recipe-modal" id="recipe-dialog" aria-labelledby="detail-name">
     <button class="modal-close" type="button" data-close="recipe-dialog" aria-label="Chiudi">×</button>
+    <figure class="detail-image-shell" id="detail-image-shell">
+      <img id="detail-image" src="./images/drinks/placeholder.svg" alt="" decoding="async">
+    </figure>
     <div class="modal-hero">
       <p class="eyebrow light" id="detail-type"></p>
       <h2 id="detail-name"></h2>
@@ -265,7 +268,7 @@
         <label class="field"><span data-i18n="abv">Gradazione %</span><input name="abv" type="number" min="0" max="80" step="0.1" value="0"></label>
         <label class="field"><span data-i18n="technique">Tecnica</span><select name="technique" id="custom-technique"></select></label>
         <label class="field"><span data-i18n="garnish">Guarnizione</span><input name="garnish" maxlength="80"></label>
-        <label class="field full-span"><span data-i18n="ingredients_lines">Ingredienti, uno per riga</span><textarea name="ingredients" rows="6" required placeholder="50 ml Gin&#10;25 ml Succo di limone&#10;15 ml Sciroppo semplice"></textarea></label>
+        <label class="field full-span"><span data-i18n="ingredients_lines">Ingredienti, uno per riga</span><textarea name="ingredients" rows="6" required placeholder="50 ml Gin&#10;25 ml Succo di limone&#10;15 ml Sciroppo di zucchero"></textarea></label>
         <label class="field full-span"><span data-i18n="notes">Note</span><textarea name="notes" rows="3" maxlength="500"></textarea></label>
       </div>
       <div class="modal-actions end">

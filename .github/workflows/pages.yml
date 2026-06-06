@@ -41,6 +41,7 @@ jobs:
           mkdir -p dist
           cp index.html styles.css app.js recipes.json manifest.webmanifest service-worker.js robots.txt dist/
           cp -R icons dist/icons
+          cp -R images dist/images
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

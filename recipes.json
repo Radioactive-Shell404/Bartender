@@ -151,7 +151,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -178,7 +178,11 @@
       "citrus",
       "silky"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Con l’albume: esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere. Senza albume: fai direttamente uno shake con ghiaccio.",
+      "en": "With egg white: dry shake without ice, add ice and shake hard; strain into the glass. Without egg white: shake directly with ice."
+    }
   },
   {
     "slug": "americano",
@@ -443,7 +447,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       }
@@ -962,7 +966,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -1324,7 +1328,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -1718,7 +1722,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -1745,7 +1749,11 @@
       "silky",
       "citrus"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere.",
+      "en": "Dry shake without ice, add ice and shake hard; strain into the glass."
+    }
   },
   {
     "slug": "boulevardier",
@@ -1836,7 +1844,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -1970,7 +1978,7 @@
         "amount": 5,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -2780,7 +2788,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo di lampone",
+          "it": "Sciroppo al lampone",
           "en": "Raspberry syrup"
         }
       },
@@ -2807,7 +2815,11 @@
       "gin",
       "silky"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere.",
+      "en": "Dry shake without ice, add ice and shake hard; strain into the glass."
+    }
   },
   {
     "slug": "coconut-dream",
@@ -3087,7 +3099,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -3150,7 +3162,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       }
@@ -3205,7 +3217,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -3269,7 +3281,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -3521,7 +3533,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo al miele",
+          "it": "Sciroppo di miele",
           "en": "Honey syrup"
         }
       }
@@ -3624,7 +3636,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -3790,7 +3802,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -3862,7 +3874,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -3933,7 +3945,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       }
@@ -3952,7 +3964,8 @@
       "coffee",
       "dessert"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/espresso-martini.webp"
   },
   {
     "slug": "fernandito",
@@ -4123,7 +4136,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -4492,7 +4505,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -4555,7 +4568,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -5284,7 +5297,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo di sambuco",
+          "it": "Sciroppo ai fiori di sambuco",
           "en": "Elderflower syrup"
         }
       },
@@ -5562,7 +5575,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -5575,7 +5588,7 @@
         }
       }
     ],
-    "technique": "shaken",
+    "technique": "dry-shake",
     "garnish": {
       "it": "Nessuna",
       "en": "None"
@@ -5590,7 +5603,11 @@
       "rum",
       "falernum"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Con l’albume: esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere. Senza albume: fai direttamente uno shake con ghiaccio.",
+      "en": "With egg white: dry shake without ice, add ice and shake hard; strain into the glass. Without egg white: shake directly with ice."
+    }
   },
   {
     "slug": "irish-coffee",
@@ -5705,7 +5722,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo di cannella",
+          "it": "Sciroppo alla cannella",
           "en": "Cinnamon syrup"
         }
       },
@@ -5792,7 +5809,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -5871,7 +5888,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       }
@@ -5894,15 +5911,15 @@
   },
   {
     "slug": "jagerbomb",
-    "type": "shot",
+    "type": "cocktail",
     "name": {
       "it": "Jägerbomb",
       "en": "Jägerbomb"
     },
     "origin": "usa",
     "glass": {
-      "it": "Bicchiere bomb",
-      "en": "Bomb glass"
+      "it": "Bicchiere highball e bicchiere shot",
+      "en": "Highball glass and shot glass"
     },
     "abv": 12,
     "ingredients": [
@@ -5929,15 +5946,20 @@
       "en": "None"
     },
     "notes": {
-      "it": "Uno shot da far cadere nell’energy drink. Consumare con moderazione.",
-      "en": "A shot dropped into an energy drink. Consume responsibly."
+      "it": "È un bomb drink: solo i 40 ml di Jägermeister costituiscono lo shot; i 120 ml sono l’energy drink nel bicchiere principale. Consumare con moderazione.",
+      "en": "This is a bomb drink: only the 40 ml of Jägermeister is the shot; the 120 ml is the energy drink in the main glass. Consume responsibly."
     },
     "tags": [
+      "bomb",
       "shot",
       "energy",
       "party"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Versa l’energy drink nel bicchiere highball. Servi il Jägermeister freddo in un bicchiere shot separato e lascialo cadere nell’energy drink appena prima di bere.",
+      "en": "Pour the energy drink into the highball glass. Serve the chilled Jägermeister in a separate shot glass and drop it into the energy drink immediately before drinking."
+    }
   },
   {
     "slug": "kamikaze",
@@ -6303,7 +6325,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       }
@@ -6366,7 +6388,7 @@
         "amount": 5,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       }
@@ -6453,7 +6475,7 @@
         "amount": 30,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -6483,7 +6505,8 @@
       "tequila",
       "iced-tea"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/long-island-iced-tea.webp"
   },
   {
     "slug": "lychee-martini",
@@ -6606,7 +6629,7 @@
         "amount": 7.5,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       }
@@ -6790,7 +6813,8 @@
       "lime",
       "citrus"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/margarita.webp"
   },
   {
     "slug": "strawberry-margarita",
@@ -6834,7 +6858,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -7142,7 +7166,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -7244,7 +7268,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -7315,7 +7339,7 @@
         "amount": 30,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo al miele",
+          "it": "Sciroppo di miele",
           "en": "Honey syrup"
         }
       },
@@ -7387,7 +7411,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -7422,7 +7446,8 @@
       "mint",
       "refreshing"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/mojito.webp"
   },
   {
     "slug": "strawberry-mojito",
@@ -7458,7 +7483,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -7872,7 +7897,8 @@
       "aperitivo",
       "gin"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/negroni.webp"
   },
   {
     "slug": "negroni-sbagliato",
@@ -7963,7 +7989,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -8026,7 +8052,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -8097,7 +8123,7 @@
         "amount": 7.5,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -8297,7 +8323,8 @@
       "grapefruit",
       "refreshing"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/paloma.webp"
   },
   {
     "slug": "paloma-rosa",
@@ -8523,7 +8550,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo di vaniglia",
+          "it": "Sciroppo alla vaniglia",
           "en": "Vanilla syrup"
         }
       },
@@ -8586,7 +8613,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -8649,7 +8676,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo miele e zenzero",
+          "it": "Sciroppo di miele e zenzero",
           "en": "Honey-ginger syrup"
         }
       },
@@ -8712,7 +8739,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -8792,7 +8819,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -8819,7 +8846,11 @@
       "citrus",
       "silky"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere.",
+      "en": "Dry shake without ice, add ice and shake hard; strain into the glass."
+    }
   },
   {
     "slug": "pina-colada",
@@ -8910,7 +8941,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo demerara",
+          "it": "Sciroppo di zucchero demerara",
           "en": "Demerara syrup"
         }
       },
@@ -8989,7 +9020,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo di vaniglia",
+          "it": "Sciroppo alla vaniglia",
           "en": "Vanilla syrup"
         }
       },
@@ -9188,7 +9219,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -9231,7 +9262,11 @@
       "gin",
       "advanced"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Esegui un dry shake senza ghiaccio e senza soda. Aggiungi il ghiaccio e fai uno shake lungo ed energico; filtra nell’highball e completa con soda.",
+      "en": "Dry shake without ice and without the soda. Add ice and shake long and hard; strain into the highball and top with soda water."
+    }
   },
   {
     "slug": "remember-the-maine",
@@ -9772,7 +9807,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -9843,7 +9878,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo di frutto della passione",
+          "it": "Sciroppo al frutto della passione",
           "en": "Passion fruit syrup"
         }
       },
@@ -9906,7 +9941,7 @@
         "amount": 7.5,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -10538,7 +10573,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -10609,7 +10644,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo al miele",
+          "it": "Sciroppo di miele",
           "en": "Honey syrup"
         }
       },
@@ -10882,7 +10917,11 @@
       "citrus",
       "silky"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Con l’albume: esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere. Senza albume: fai direttamente uno shake con ghiaccio.",
+      "en": "With egg white: dry shake without ice, add ice and shake hard; strain into the glass. Without egg white: shake directly with ice."
+    }
   },
   {
     "slug": "tequila-sunrise",
@@ -10937,7 +10976,8 @@
       "orange",
       "fruity"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/tequila-sunrise.webp"
   },
   {
     "slug": "three-dots-and-a-dash",
@@ -11164,7 +11204,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -11198,7 +11238,8 @@
       "Tokio Iced Tea",
       "Tokyo Tea",
       "Tokio Tea"
-    ]
+    ],
+    "image": "images/drinks/tokyo-iced-tea.webp"
   },
   {
     "slug": "tom-collins",
@@ -11234,7 +11275,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -11352,7 +11393,7 @@
         "amount": 7.5,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -11612,7 +11653,7 @@
         "amount": 15,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo al miele e camomilla",
+          "it": "Sciroppo di miele e camomilla",
           "en": "Chamomile honey syrup"
         }
       },
@@ -11633,7 +11674,7 @@
         }
       }
     ],
-    "technique": "shaken",
+    "technique": "dry-shake",
     "garnish": {
       "it": "Scorza di limone e uva bianca",
       "en": "Lemon zest and white grapes"
@@ -11648,7 +11689,11 @@
       "chamomile",
       "italy"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Con l’albume: esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere. Senza albume: fai direttamente uno shake con ghiaccio.",
+      "en": "With egg white: dry shake without ice, add ice and shake hard; strain into the glass. Without egg white: shake directly with ice."
+    }
   },
   {
     "slug": "vesper",
@@ -11890,7 +11935,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -12238,7 +12283,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -12301,7 +12346,7 @@
         "amount": 20,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo semplice",
+          "it": "Sciroppo di zucchero",
           "en": "Simple syrup"
         }
       },
@@ -12328,7 +12373,12 @@
       "citrus",
       "silky"
     ],
-    "status": "verified"
+    "status": "verified",
+    "preparation": {
+      "it": "Con l’albume: esegui un dry shake senza ghiaccio, aggiungi il ghiaccio e fai uno shake energico; filtra nel bicchiere. Senza albume: fai direttamente uno shake con ghiaccio.",
+      "en": "With egg white: dry shake without ice, add ice and shake hard; strain into the glass. Without egg white: shake directly with ice."
+    },
+    "image": "images/drinks/whiskey-sour.webp"
   },
   {
     "slug": "white-lady",
@@ -12438,7 +12488,8 @@
       "coffee",
       "creamy"
     ],
-    "status": "verified"
+    "status": "verified",
+    "image": "images/drinks/white-russian.webp"
   },
   {
     "slug": "woo-woo",
@@ -12561,7 +12612,7 @@
         "amount": 10,
         "unit": "ml",
         "name": {
-          "it": "Sciroppo di cannella",
+          "it": "Sciroppo alla cannella",
           "en": "Cinnamon syrup"
         }
       },

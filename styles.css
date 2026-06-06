@@ -240,9 +240,27 @@ html.dark .chip.active { background: var(--gold); color: #171109; border-color: 
   border: 0;
   background: none;
   text-align: left;
-  padding: 1.2rem;
+  padding: 0;
   color: inherit;
+  overflow: hidden;
 }
+.recipe-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+.recipe-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .35s ease;
+}
+.recipe-card:hover .recipe-card-image { transform: scale(1.025); }
+.recipe-card-media.is-placeholder .recipe-card-image { object-fit: contain; filter: saturate(.75); }
+.recipe-card-content { padding: 1.05rem 1.15rem 1.15rem; }
 .recipe-card-top { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-bottom: 1rem; }
 .type-pill, .tag, .status-pill {
   display: inline-flex;
@@ -380,6 +398,15 @@ html.dark .type-pill.mocktail, html.dark .type-pill.shot, html.dark .type-pill.l
 }
 .modal::backdrop { background: rgba(12,8,4,.72); backdrop-filter: blur(4px); }
 .modal-close { position: sticky; float: right; top: .75rem; margin: .75rem .75rem -3rem 0; z-index: 2; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.24); background: rgba(0,0,0,.2); color: white; font-size: 1.4rem; }
+.detail-image-shell {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+.detail-image-shell img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.detail-image-shell.is-placeholder img { object-fit: contain; filter: saturate(.75); }
 .modal-hero { padding: 2rem; background: linear-gradient(135deg, var(--deep), var(--deep-2)); color: white; }
 .modal-hero h2 { font-size: clamp(2rem, 6vw, 3.5rem); }
 .modal-hero p { color: #cbbda7; }
@@ -436,7 +463,7 @@ html.dark .type-pill.mocktail, html.dark .type-pill.shot, html.dark .type-pill.l
   .hero { padding-top: .8rem; }
   .search-panel { padding: .75rem; border-radius: 15px; }
   .recipe-grid { grid-template-columns: 1fr; }
-  .recipe-card { min-height: 245px; }
+  .recipe-card { min-height: 330px; }
   .heading-actions .count-label { display: none; }
   .primary-btn, .secondary-btn, .danger-btn, .ghost-btn { padding: .67rem .82rem; }
   .modal { width: calc(100% - .5rem); max-height: calc(100vh - .5rem); border-radius: 18px; }
