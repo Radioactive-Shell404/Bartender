@@ -236,6 +236,62 @@
     "status": "verified"
   },
   {
+    "slug": "angel-face",
+    "type": "classic",
+    "name": {
+      "it": "Angel Face",
+      "en": "Angel Face"
+    },
+    "origin": "france",
+    "glass": {
+      "it": "Coppa",
+      "en": "Cocktail glass"
+    },
+    "abv": 29,
+    "ingredients": [
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Apricot Brandy",
+          "en": "Apricot brandy"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Calvados",
+          "en": "Calvados"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Nessuna",
+      "en": "None"
+    },
+    "notes": {
+      "it": "Fruttato e potente, con mela, albicocca e ginepro.",
+      "en": "A strong, fruit-led classic combining apple, apricot and juniper."
+    },
+    "tags": [
+      "iba",
+      "gin",
+      "brandy",
+      "calvados"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "aperol-spritz",
     "type": "longdrink",
     "name": {
@@ -1865,6 +1921,86 @@
     "status": "verified"
   },
   {
+    "slug": "brandy-crusta",
+    "type": "classic",
+    "name": {
+      "it": "Brandy Crusta",
+      "en": "Brandy Crusta"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Calice stretto",
+      "en": "Slim cocktail glass"
+    },
+    "abv": 24,
+    "ingredients": [
+      {
+        "amount": 52.5,
+        "unit": "ml",
+        "name": {
+          "it": "Brandy",
+          "en": "Brandy"
+        }
+      },
+      {
+        "amount": 7.5,
+        "unit": "ml",
+        "name": {
+          "it": "Maraschino",
+          "en": "Maraschino liqueur"
+        }
+      },
+      {
+        "amount": 5,
+        "unit": "ml",
+        "name": {
+          "it": "Curaçao",
+          "en": "Curaçao"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di limone",
+          "en": "Lemon juice"
+        }
+      },
+      {
+        "amount": 5,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "dash",
+        "name": {
+          "it": "Bitter aromatico",
+          "en": "Aromatic bitters"
+        }
+      }
+    ],
+    "technique": "stirred",
+    "garnish": {
+      "it": "Bordo di zucchero e lunga scorza di agrume",
+      "en": "Sugar rim and long citrus peel"
+    },
+    "notes": {
+      "it": "Un antenato del Sidecar, agrumato e aromatico.",
+      "en": "A citrusy, aromatic predecessor to the Sidecar."
+    },
+    "tags": [
+      "iba",
+      "brandy",
+      "citrus",
+      "classic"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "brooklyn",
     "type": "classic",
     "name": {
@@ -2038,6 +2174,134 @@
     "status": "verified"
   },
   {
+    "slug": "passion-fruit-caipiroska",
+    "type": "cocktail",
+    "name": {
+      "it": "Caipiroska al passion fruit",
+      "en": "Passion Fruit Caipiroska"
+    },
+    "origin": "brazil",
+    "glass": {
+      "it": "Tumbler basso",
+      "en": "Rocks glass"
+    },
+    "abv": 13,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 1,
+        "unit": "whole",
+        "name": {
+          "it": "Lime a spicchi",
+          "en": "Lime cut into wedges"
+        }
+      },
+      {
+        "amount": 1,
+        "unit": "whole",
+        "name": {
+          "it": "Frutto della passione",
+          "en": "Passion fruit"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "tsp",
+        "name": {
+          "it": "Zucchero",
+          "en": "Sugar"
+        }
+      }
+    ],
+    "technique": "muddled",
+    "garnish": {
+      "it": "Mezzo frutto della passione",
+      "en": "Half passion fruit"
+    },
+    "notes": {
+      "it": "Tropicale, acidula e profumata, con polpa di passion fruit.",
+      "en": "Tropical, tart and aromatic, using fresh passion fruit."
+    },
+    "tags": [
+      "caipiroska",
+      "passion-fruit",
+      "vodka",
+      "tropical"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "strawberry-caipiroska",
+    "type": "cocktail",
+    "name": {
+      "it": "Caipiroska alla fragola",
+      "en": "Strawberry Caipiroska"
+    },
+    "origin": "brazil",
+    "glass": {
+      "it": "Tumbler basso",
+      "en": "Rocks glass"
+    },
+    "abv": 13,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 1,
+        "unit": "whole",
+        "name": {
+          "it": "Lime a spicchi",
+          "en": "Lime cut into wedges"
+        }
+      },
+      {
+        "amount": 4,
+        "unit": "piece",
+        "name": {
+          "it": "Fragole",
+          "en": "Strawberries"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "tsp",
+        "name": {
+          "it": "Zucchero",
+          "en": "Sugar"
+        }
+      }
+    ],
+    "technique": "muddled",
+    "garnish": {
+      "it": "Fragola e lime",
+      "en": "Strawberry and lime"
+    },
+    "notes": {
+      "it": "Una Caipiroska morbida e fruttata, molto semplice da preparare.",
+      "en": "A soft, fruity Caipiroska that is easy to prepare."
+    },
+    "tags": [
+      "caipiroska",
+      "strawberry",
+      "fragola",
+      "vodka"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "campari-spritz",
     "type": "longdrink",
     "name": {
@@ -2089,6 +2353,126 @@
       "aperitivo",
       "sparkling",
       "bitter"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "canchanchara",
+    "type": "cocktail",
+    "name": {
+      "it": "Canchanchara",
+      "en": "Canchanchara"
+    },
+    "origin": "cuba",
+    "glass": {
+      "it": "Tumbler basso",
+      "en": "Rocks glass"
+    },
+    "abv": 16,
+    "ingredients": [
+      {
+        "amount": 60,
+        "unit": "ml",
+        "name": {
+          "it": "Aguardiente cubana",
+          "en": "Cuban aguardiente"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Miele grezzo",
+          "en": "Raw honey"
+        }
+      },
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Acqua",
+          "en": "Water"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Spicchio di lime",
+      "en": "Lime wedge"
+    },
+    "notes": {
+      "it": "Rustica e rinfrescante, con miele, lime e distillato di canna.",
+      "en": "Rustic and refreshing, built around honey, lime and cane spirit."
+    },
+    "tags": [
+      "iba",
+      "cuba",
+      "honey",
+      "lime"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "cardinale",
+    "type": "classic",
+    "name": {
+      "it": "Cardinale",
+      "en": "Cardinale"
+    },
+    "origin": "italy",
+    "glass": {
+      "it": "Coppa",
+      "en": "Cocktail glass"
+    },
+    "abv": 25,
+    "ingredients": [
+      {
+        "amount": 40,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 20,
+        "unit": "ml",
+        "name": {
+          "it": "Vermouth dry",
+          "en": "Dry vermouth"
+        }
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": {
+          "it": "Campari",
+          "en": "Campari"
+        }
+      }
+    ],
+    "technique": "stirred",
+    "garnish": {
+      "it": "Scorza di limone",
+      "en": "Lemon zest"
+    },
+    "notes": {
+      "it": "Una variante più secca e affilata del Negroni.",
+      "en": "A drier, sharper relative of the Negroni."
+    },
+    "tags": [
+      "iba",
+      "gin",
+      "campari",
+      "vermouth"
     ],
     "status": "verified"
   },
@@ -2152,6 +2536,142 @@
       "gin",
       "dry",
       "aromatic"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "champagne-cocktail",
+    "type": "classic",
+    "name": {
+      "it": "Champagne Cocktail",
+      "en": "Champagne Cocktail"
+    },
+    "origin": "france",
+    "glass": {
+      "it": "Flûte ampia",
+      "en": "Large champagne glass"
+    },
+    "abv": 14,
+    "ingredients": [
+      {
+        "amount": 90,
+        "unit": "ml",
+        "name": {
+          "it": "Champagne freddo",
+          "en": "Chilled Champagne"
+        }
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": {
+          "it": "Cognac",
+          "en": "Cognac"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "dash",
+        "name": {
+          "it": "Angostura",
+          "en": "Angostura bitters"
+        }
+      },
+      {
+        "amount": 1,
+        "unit": "piece",
+        "name": {
+          "it": "Zolletta di zucchero",
+          "en": "Sugar cube"
+        }
+      },
+      {
+        "amount": 3,
+        "unit": "ml",
+        "name": {
+          "it": "Grand Marnier opzionale",
+          "en": "Optional Grand Marnier"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Scorza d’arancia e ciliegia",
+      "en": "Orange zest and cherry"
+    },
+    "notes": {
+      "it": "Elegante, effervescente e leggermente speziato.",
+      "en": "Elegant, sparkling and lightly spiced."
+    },
+    "tags": [
+      "iba",
+      "champagne",
+      "cognac",
+      "sparkling"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "chartreuse-swizzle",
+    "type": "cocktail",
+    "name": {
+      "it": "Chartreuse Swizzle",
+      "en": "Chartreuse Swizzle"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 18,
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Chartreuse verde",
+          "en": "Green Chartreuse"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Succo d’ananas",
+          "en": "Pineapple juice"
+        }
+      },
+      {
+        "amount": 22.5,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Falernum",
+          "en": "Falernum"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Menta e noce moscata",
+      "en": "Mint and grated nutmeg"
+    },
+    "notes": {
+      "it": "Erbaceo, tropicale e intenso, servito su ghiaccio tritato.",
+      "en": "Herbal, tropical and intense, served over pebble ice."
+    },
+    "tags": [
+      "iba",
+      "chartreuse",
+      "pineapple",
+      "tropical"
     ],
     "status": "verified"
   },
@@ -2652,6 +3172,134 @@
     "status": "verified"
   },
   {
+    "slug": "banana-daiquiri",
+    "type": "cocktail",
+    "name": {
+      "it": "Daiquiri alla banana",
+      "en": "Banana Daiquiri"
+    },
+    "origin": "cuba",
+    "glass": {
+      "it": "Coppa",
+      "en": "Coupe"
+    },
+    "abv": 16,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": 0.5,
+        "unit": "whole",
+        "name": {
+          "it": "Banana",
+          "en": "Banana"
+        }
+      }
+    ],
+    "technique": "blended",
+    "garnish": {
+      "it": "Fetta di banana e lime",
+      "en": "Banana slice and lime"
+    },
+    "notes": {
+      "it": "Morbido e tropicale, con banana fresca e rum bianco.",
+      "en": "Smooth and tropical, with fresh banana and white rum."
+    },
+    "tags": [
+      "daiquiri",
+      "banana",
+      "rum",
+      "frozen"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "strawberry-daiquiri",
+    "type": "cocktail",
+    "name": {
+      "it": "Daiquiri alla fragola",
+      "en": "Strawberry Daiquiri"
+    },
+    "origin": "cuba",
+    "glass": {
+      "it": "Coppa",
+      "en": "Coupe"
+    },
+    "abv": 16,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": 4,
+        "unit": "piece",
+        "name": {
+          "it": "Fragole",
+          "en": "Strawberries"
+        }
+      }
+    ],
+    "technique": "blended",
+    "garnish": {
+      "it": "Fragola e lime",
+      "en": "Strawberry and lime"
+    },
+    "notes": {
+      "it": "La variazione fruttata più famosa del Daiquiri, fresca e cremosa.",
+      "en": "The best-known fruit Daiquiri variation, fresh and smooth."
+    },
+    "tags": [
+      "daiquiri",
+      "strawberry",
+      "fragola",
+      "frozen"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "dark-n-stormy",
     "type": "longdrink",
     "name": {
@@ -2820,6 +3468,78 @@
       "mezcal",
       "bitter",
       "citrus"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "dons-special-daiquiri",
+    "type": "cocktail",
+    "name": {
+      "it": "Don's Special Daiquiri",
+      "en": "Don's Special Daiquiri"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Calice tiki",
+      "en": "Footed tiki glass"
+    },
+    "abv": 18,
+    "ingredients": [
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Rum giamaicano dorato",
+          "en": "Gold Jamaican rum"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Rum cubano",
+          "en": "Cuban rum"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo al frutto della passione",
+          "en": "Passion fruit syrup"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo al miele",
+          "en": "Honey syrup"
+        }
+      }
+    ],
+    "technique": "blended",
+    "garnish": {
+      "it": "Mezzo frutto della passione",
+      "en": "Half passion fruit"
+    },
+    "notes": {
+      "it": "Una variazione tiki del Daiquiri, tropicale e profumata.",
+      "en": "A fragrant tropical tiki variation of the Daiquiri."
+    },
+    "tags": [
+      "iba",
+      "daiquiri",
+      "rum",
+      "passion-fruit"
     ],
     "status": "verified"
   },
@@ -3005,6 +3725,102 @@
     "status": "verified"
   },
   {
+    "slug": "electric-iced-tea",
+    "type": "longdrink",
+    "name": {
+      "it": "Electric Iced Tea",
+      "en": "Electric Iced Tea"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 19,
+    "ingredients": [
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Tequila",
+          "en": "Tequila"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Blue Curaçao",
+          "en": "Blue Curaçao"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di limone",
+          "en": "Lemon juice"
+        }
+      },
+      {
+        "amount": 20,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Soda al limone e lime",
+          "en": "Lemon-lime soda"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Fetta di limone",
+      "en": "Lemon slice"
+    },
+    "notes": {
+      "it": "Una variazione blu e agrumata del Long Island Iced Tea.",
+      "en": "A bright blue citrus variation of the Long Island Iced Tea."
+    },
+    "tags": [
+      "blue long island",
+      "electric lemonade",
+      "iced-tea",
+      "blue-curacao"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "enzoni",
     "type": "cocktail",
     "name": {
@@ -3135,6 +3951,54 @@
       "vodka",
       "coffee",
       "dessert"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "fernandito",
+    "type": "longdrink",
+    "name": {
+      "it": "Fernandito",
+      "en": "Fernandito"
+    },
+    "origin": "argentina",
+    "glass": {
+      "it": "Tumbler basso",
+      "en": "Double rocks glass"
+    },
+    "abv": 12,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Fernet Branca",
+          "en": "Fernet Branca"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Cola",
+          "en": "Cola"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Nessuna",
+      "en": "None"
+    },
+    "notes": {
+      "it": "Il classico argentino Fernet e cola, amaro e dissetante.",
+      "en": "Argentina’s iconic Fernet and cola highball, bitter and refreshing."
+    },
+    "tags": [
+      "iba",
+      "fernet",
+      "cola",
+      "argentina"
     ],
     "status": "verified"
   },
@@ -3721,6 +4585,102 @@
     "status": "verified"
   },
   {
+    "slug": "gin-lemon",
+    "type": "longdrink",
+    "name": {
+      "it": "Gin Lemon",
+      "en": "Gin Lemon"
+    },
+    "origin": "italy",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 10,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Soda al limone",
+          "en": "Lemon soda"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Fetta di limone",
+      "en": "Lemon slice"
+    },
+    "notes": {
+      "it": "Agrumato e immediato, più morbido di un Gin Tonic.",
+      "en": "Citrusy and approachable, softer than a Gin and Tonic."
+    },
+    "tags": [
+      "gin",
+      "lemon",
+      "italy",
+      "easy"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "gin-tonic",
+    "type": "longdrink",
+    "name": {
+      "it": "Gin Tonic",
+      "en": "Gin and Tonic"
+    },
+    "origin": "uk",
+    "glass": {
+      "it": "Balloon o Highball",
+      "en": "Balloon or highball"
+    },
+    "abv": 11,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Acqua tonica",
+          "en": "Tonic water"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Scorza di limone o botanica abbinata",
+      "en": "Lemon peel or matching botanical"
+    },
+    "notes": {
+      "it": "Essenziale e versatile: la qualità di gin, tonica e ghiaccio fa la differenza.",
+      "en": "Simple and versatile: gin, tonic and ice quality make all the difference."
+    },
+    "tags": [
+      "gin",
+      "tonic",
+      "highball",
+      "easy"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "godfather",
     "type": "cocktail",
     "name": {
@@ -3819,6 +4779,62 @@
       "whiskey",
       "honey",
       "citrus"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "grand-margarita",
+    "type": "cocktail",
+    "name": {
+      "it": "Grand Margarita",
+      "en": "Grand Margarita"
+    },
+    "origin": "mexico",
+    "glass": {
+      "it": "Tumbler basso",
+      "en": "Rocks glass"
+    },
+    "abv": 23,
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Tequila 100% agave",
+          "en": "100% agave tequila"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Grand Marnier",
+          "en": "Grand Marnier"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Bordo di sale e fetta di lime",
+      "en": "Salt rim and lime slice"
+    },
+    "notes": {
+      "it": "Una Margarita più ricca, con Grand Marnier al posto del triple sec.",
+      "en": "A richer Margarita using Grand Marnier in place of triple sec."
+    },
+    "tags": [
+      "iba",
+      "tequila",
+      "margarita",
+      "orange"
     ],
     "status": "verified"
   },
@@ -3949,6 +4965,62 @@
     "status": "verified"
   },
   {
+    "slug": "hanky-panky",
+    "type": "classic",
+    "name": {
+      "it": "Hanky Panky",
+      "en": "Hanky Panky"
+    },
+    "origin": "uk",
+    "glass": {
+      "it": "Coppa",
+      "en": "Cocktail glass"
+    },
+    "abv": 28,
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "London Dry Gin",
+          "en": "London Dry gin"
+        }
+      },
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Vermouth rosso",
+          "en": "Sweet red vermouth"
+        }
+      },
+      {
+        "amount": 7.5,
+        "unit": "ml",
+        "name": {
+          "it": "Fernet",
+          "en": "Fernet"
+        }
+      }
+    ],
+    "technique": "stirred",
+    "garnish": {
+      "it": "Scorza d’arancia",
+      "en": "Orange zest"
+    },
+    "notes": {
+      "it": "Profondo, erbaceo e amaricante, con una piccola dose di Fernet.",
+      "en": "Deep, herbal and bittersweet, lifted by a small measure of Fernet."
+    },
+    "tags": [
+      "iba",
+      "gin",
+      "vermouth",
+      "fernet"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "harvey-wallbanger",
     "type": "classic",
     "name": {
@@ -4000,6 +5072,126 @@
       "vodka",
       "orange",
       "herbal"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "hemingway-special",
+    "type": "classic",
+    "name": {
+      "it": "Hemingway Special",
+      "en": "Hemingway Special"
+    },
+    "origin": "cuba",
+    "glass": {
+      "it": "Coppa grande",
+      "en": "Large cocktail glass"
+    },
+    "abv": 18,
+    "ingredients": [
+      {
+        "amount": 60,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 40,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di pompelmo",
+          "en": "Grapefruit juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Maraschino",
+          "en": "Maraschino liqueur"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Nessuna",
+      "en": "None"
+    },
+    "notes": {
+      "it": "Una variazione secca e agrumata del Daiquiri.",
+      "en": "A dry, grapefruit-forward Daiquiri variation."
+    },
+    "tags": [
+      "iba",
+      "daiquiri",
+      "rum",
+      "grapefruit"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "horses-neck",
+    "type": "longdrink",
+    "name": {
+      "it": "Horse's Neck",
+      "en": "Horse's Neck"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 10,
+    "ingredients": [
+      {
+        "amount": 40,
+        "unit": "ml",
+        "name": {
+          "it": "Cognac",
+          "en": "Cognac"
+        }
+      },
+      {
+        "amount": 120,
+        "unit": "ml",
+        "name": {
+          "it": "Ginger ale",
+          "en": "Ginger ale"
+        }
+      },
+      {
+        "amount": 1,
+        "unit": "dash",
+        "name": {
+          "it": "Angostura opzionale",
+          "en": "Optional Angostura bitters"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Lunga spirale di scorza di limone",
+      "en": "Long lemon peel spiral"
+    },
+    "notes": {
+      "it": "Un highball semplice, speziato e molto aromatico.",
+      "en": "A simple, spicy and aromatic highball."
+    },
+    "tags": [
+      "iba",
+      "cognac",
+      "ginger-ale",
+      "highball"
     ],
     "status": "verified"
   },
@@ -4205,6 +5397,198 @@
       "rum",
       "tropical",
       "fruity"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "iba-tiki",
+    "type": "cocktail",
+    "name": {
+      "it": "IBA Tiki",
+      "en": "IBA Tiki"
+    },
+    "origin": "international",
+    "glass": {
+      "it": "Tiki mug",
+      "en": "Tiki mug"
+    },
+    "abv": 16,
+    "ingredients": [
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Rum scuro",
+          "en": "Dark rum"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Rum affumicato",
+          "en": "Smoky rum"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Amaretto",
+          "en": "Amaretto"
+        }
+      },
+      {
+        "amount": 5,
+        "unit": "ml",
+        "name": {
+          "it": "Frangelico",
+          "en": "Frangelico"
+        }
+      },
+      {
+        "amount": 5,
+        "unit": "dash",
+        "name": {
+          "it": "Maraschino",
+          "en": "Maraschino liqueur"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Purea di frutto della passione",
+          "en": "Passion fruit purée"
+        }
+      },
+      {
+        "amount": 90,
+        "unit": "ml",
+        "name": {
+          "it": "Succo d’ananas",
+          "en": "Pineapple juice"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 1,
+        "unit": "slice",
+        "name": {
+          "it": "Zenzero",
+          "en": "Ginger slice"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Agrumi e ananas disidratato",
+      "en": "Citrus and dehydrated pineapple"
+    },
+    "notes": {
+      "it": "Tiki moderno, ricco di frutta tropicale, frutta secca e spezie.",
+      "en": "A modern tiki drink layered with tropical fruit, nuts and spice."
+    },
+    "tags": [
+      "iba",
+      "tiki",
+      "rum",
+      "tropical"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "illegal",
+    "type": "cocktail",
+    "name": {
+      "it": "Illegal",
+      "en": "Illegal"
+    },
+    "origin": "mexico",
+    "glass": {
+      "it": "Coppa o tazza di terracotta",
+      "en": "Cocktail glass or clay mug"
+    },
+    "abv": 21,
+    "ingredients": [
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Mezcal Espadín",
+          "en": "Espadín mezcal"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco overproof",
+          "en": "Overproof white rum"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Falernum",
+          "en": "Falernum"
+        }
+      },
+      {
+        "amount": 5,
+        "unit": "ml",
+        "name": {
+          "it": "Maraschino",
+          "en": "Maraschino liqueur"
+        }
+      },
+      {
+        "amount": 22.5,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": 3,
+        "unit": "ml",
+        "name": {
+          "it": "Albume opzionale",
+          "en": "Optional egg white"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Nessuna",
+      "en": "None"
+    },
+    "notes": {
+      "it": "Affumicato, speziato e tropicale, con mezcal e rum overproof.",
+      "en": "Smoky, spicy and tropical, combining mezcal with overproof rum."
+    },
+    "tags": [
+      "iba",
+      "mezcal",
+      "rum",
+      "falernum"
     ],
     "status": "verified"
   },
@@ -5004,6 +6388,104 @@
     "status": "verified"
   },
   {
+    "slug": "long-island-iced-tea",
+    "type": "longdrink",
+    "name": {
+      "it": "Long Island Iced Tea",
+      "en": "Long Island Iced Tea"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 20,
+    "ingredients": [
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Tequila",
+          "en": "Tequila"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Cointreau",
+          "en": "Cointreau"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di limone",
+          "en": "Lemon juice"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Cola",
+          "en": "Cola"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Fetta di limone opzionale",
+      "en": "Optional lemon slice"
+    },
+    "notes": {
+      "it": "Molto alcolico ma sorprendentemente morbido, completato con cola.",
+      "en": "Spirit-forward yet deceptively smooth, finished with cola."
+    },
+    "tags": [
+      "iba",
+      "vodka",
+      "gin",
+      "rum",
+      "tequila",
+      "iced-tea"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "lychee-martini",
     "type": "cocktail",
     "name": {
@@ -5307,6 +6789,78 @@
       "tequila",
       "lime",
       "citrus"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "strawberry-margarita",
+    "type": "cocktail",
+    "name": {
+      "it": "Margarita alla fragola",
+      "en": "Strawberry Margarita"
+    },
+    "origin": "mexico",
+    "glass": {
+      "it": "Coppa Margarita",
+      "en": "Margarita glass"
+    },
+    "abv": 17,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Tequila blanco",
+          "en": "Blanco tequila"
+        }
+      },
+      {
+        "amount": 20,
+        "unit": "ml",
+        "name": {
+          "it": "Triple sec",
+          "en": "Triple sec"
+        }
+      },
+      {
+        "amount": 20,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": 4,
+        "unit": "piece",
+        "name": {
+          "it": "Fragole",
+          "en": "Strawberries"
+        }
+      }
+    ],
+    "technique": "blended",
+    "garnish": {
+      "it": "Bordo di sale, fragola e lime",
+      "en": "Salt rim, strawberry and lime"
+    },
+    "notes": {
+      "it": "Fruttata, fresca e leggermente acidula.",
+      "en": "Fruity, fresh and gently tart."
+    },
+    "tags": [
+      "margarita",
+      "strawberry",
+      "fragola",
+      "tequila"
     ],
     "status": "verified"
   },
@@ -5720,6 +7274,86 @@
     "status": "verified"
   },
   {
+    "slug": "missionarys-downfall",
+    "type": "cocktail",
+    "name": {
+      "it": "Missionary's Downfall",
+      "en": "Missionary's Downfall"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Coppa grande",
+      "en": "Large coupe"
+    },
+    "abv": 13,
+    "ingredients": [
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Brandy alla pesca",
+          "en": "Peach brandy"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo al miele",
+          "en": "Honey syrup"
+        }
+      },
+      {
+        "amount": 10,
+        "unit": "leaf",
+        "name": {
+          "it": "Foglie di menta",
+          "en": "Mint leaves"
+        }
+      },
+      {
+        "amount": 4,
+        "unit": "piece",
+        "name": {
+          "it": "Pezzi di ananas",
+          "en": "Pineapple chunks"
+        }
+      }
+    ],
+    "technique": "blended",
+    "garnish": {
+      "it": "Menta e fetta d’ananas",
+      "en": "Mint sprig and pineapple slice"
+    },
+    "notes": {
+      "it": "Tiki fresco e vellutato, con menta, pesca e ananas.",
+      "en": "A fresh, velvety tiki drink with mint, peach and pineapple."
+    },
+    "tags": [
+      "iba",
+      "tiki",
+      "rum",
+      "mint"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "mojito",
     "type": "classic",
     "name": {
@@ -5787,6 +7421,86 @@
       "rum",
       "mint",
       "refreshing"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "strawberry-mojito",
+    "type": "longdrink",
+    "name": {
+      "it": "Mojito alla fragola",
+      "en": "Strawberry Mojito"
+    },
+    "origin": "cuba",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 10,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": 6,
+        "unit": "leaf",
+        "name": {
+          "it": "Menta",
+          "en": "Mint leaves"
+        }
+      },
+      {
+        "amount": 4,
+        "unit": "piece",
+        "name": {
+          "it": "Fragole",
+          "en": "Strawberries"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Soda",
+          "en": "Soda water"
+        }
+      }
+    ],
+    "technique": "muddled",
+    "garnish": {
+      "it": "Menta, fragola e lime",
+      "en": "Mint, strawberry and lime"
+    },
+    "notes": {
+      "it": "Una versione più fruttata e morbida del Mojito classico.",
+      "en": "A fruitier, softer variation of the classic Mojito."
+    },
+    "tags": [
+      "mojito",
+      "strawberry",
+      "fragola",
+      "rum"
     ],
     "status": "verified"
   },
@@ -6720,6 +8434,62 @@
     "status": "verified"
   },
   {
+    "slug": "paradise",
+    "type": "classic",
+    "name": {
+      "it": "Paradise",
+      "en": "Paradise"
+    },
+    "origin": "france",
+    "glass": {
+      "it": "Coppa",
+      "en": "Cocktail glass"
+    },
+    "abv": 22,
+    "ingredients": [
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 20,
+        "unit": "ml",
+        "name": {
+          "it": "Apricot Brandy",
+          "en": "Apricot brandy"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo d’arancia",
+          "en": "Orange juice"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Nessuna",
+      "en": "None"
+    },
+    "notes": {
+      "it": "Un classico breve, fruttato e delicatamente agrumato.",
+      "en": "A short, fruity classic with gentle citrus notes."
+    },
+    "tags": [
+      "iba",
+      "gin",
+      "apricot",
+      "orange"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "passion-cooler",
     "type": "mocktail",
     "name": {
@@ -6905,6 +8675,86 @@
       "scotch",
       "smoky",
       "ginger"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "pisco-punch",
+    "type": "cocktail",
+    "name": {
+      "it": "Pisco Punch",
+      "en": "Pisco Punch"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Calice ampio",
+      "en": "Large goblet"
+    },
+    "abv": 15,
+    "ingredients": [
+      {
+        "amount": 60,
+        "unit": "ml",
+        "name": {
+          "it": "Pisco",
+          "en": "Pisco"
+        }
+      },
+      {
+        "amount": 22.5,
+        "unit": "ml",
+        "name": {
+          "it": "Succo d’ananas",
+          "en": "Pineapple juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di limone",
+          "en": "Lemon juice"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Vino bianco secco",
+          "en": "Dry white wine"
+        }
+      },
+      {
+        "amount": 3,
+        "unit": "piece",
+        "name": {
+          "it": "Chiodi di garofano",
+          "en": "Cloves"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Nessuna",
+      "en": "None"
+    },
+    "notes": {
+      "it": "Fruttato e speziato, con pisco, ananas e vino bianco.",
+      "en": "Fruity and spiced, combining pisco, pineapple and dry white wine."
+    },
+    "tags": [
+      "iba",
+      "pisco",
+      "pineapple",
+      "punch"
     ],
     "status": "verified"
   },
@@ -7165,6 +9015,126 @@
       "vodka",
       "passion-fruit",
       "fruity"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "porto-flip",
+    "type": "classic",
+    "name": {
+      "it": "Porto Flip",
+      "en": "Porto Flip"
+    },
+    "origin": "portugal",
+    "glass": {
+      "it": "Coppa",
+      "en": "Cocktail glass"
+    },
+    "abv": 17,
+    "ingredients": [
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Brandy",
+          "en": "Brandy"
+        }
+      },
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Porto Tawny",
+          "en": "Tawny Port"
+        }
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": {
+          "it": "Tuorlo d’uovo",
+          "en": "Egg yolk"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Noce moscata grattugiata",
+      "en": "Freshly grated nutmeg"
+    },
+    "notes": {
+      "it": "Ricco e setoso, con Porto, brandy e tuorlo.",
+      "en": "Rich and silky, combining Port, brandy and egg yolk."
+    },
+    "tags": [
+      "iba",
+      "port",
+      "brandy",
+      "flip"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "rabo-de-galo",
+    "type": "classic",
+    "name": {
+      "it": "Rabo de Galo",
+      "en": "Rabo de Galo"
+    },
+    "origin": "brazil",
+    "glass": {
+      "it": "Tumbler basso",
+      "en": "Rocks glass"
+    },
+    "abv": 25,
+    "ingredients": [
+      {
+        "amount": 60,
+        "unit": "ml",
+        "name": {
+          "it": "Cachaça",
+          "en": "Cachaça"
+        }
+      },
+      {
+        "amount": 20,
+        "unit": "ml",
+        "name": {
+          "it": "Vermouth rosso",
+          "en": "Sweet vermouth"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Cynar",
+          "en": "Cynar"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "dash",
+        "name": {
+          "it": "Angostura opzionale",
+          "en": "Optional Angostura bitters"
+        }
+      }
+    ],
+    "technique": "stirred",
+    "garnish": {
+      "it": "Scorza d’arancia",
+      "en": "Orange twist"
+    },
+    "notes": {
+      "it": "Un classico brasiliano robusto, erbaceo e amaricante.",
+      "en": "A robust Brazilian classic with herbal and bitter depth."
+    },
+    "tags": [
+      "iba",
+      "cachaca",
+      "vermouth",
+      "cynar"
     ],
     "status": "verified"
   },
@@ -7512,6 +9482,78 @@
       "rum",
       "tropical",
       "fruity"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "russian-spring-punch",
+    "type": "cocktail",
+    "name": {
+      "it": "Russian Spring Punch",
+      "en": "Russian Spring Punch"
+    },
+    "origin": "uk",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 11,
+    "ingredients": [
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di limone",
+          "en": "Lemon juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Crème de cassis",
+          "en": "Crème de cassis"
+        }
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo di zucchero",
+          "en": "Sugar syrup"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Vino spumante",
+          "en": "Sparkling wine"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "More e fetta di limone",
+      "en": "Blackberries and lemon slice"
+    },
+    "notes": {
+      "it": "Fruttato, brillante e frizzante, con ribes nero e spumante.",
+      "en": "Bright, fruity and sparkling, with blackcurrant and wine."
+    },
+    "tags": [
+      "iba",
+      "vodka",
+      "cassis",
+      "sparkling"
     ],
     "status": "verified"
   },
@@ -7973,6 +10015,54 @@
     "status": "verified"
   },
   {
+    "slug": "screwdriver",
+    "type": "longdrink",
+    "name": {
+      "it": "Screwdriver",
+      "en": "Screwdriver"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 10,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 100,
+        "unit": "ml",
+        "name": {
+          "it": "Succo d’arancia",
+          "en": "Orange juice"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Fetta d’arancia",
+      "en": "Orange slice"
+    },
+    "notes": {
+      "it": "Un classico semplicissimo a base di vodka e arancia.",
+      "en": "A very simple classic combining vodka and orange juice."
+    },
+    "tags": [
+      "vodka",
+      "orange",
+      "easy",
+      "highball"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "sea-breeze",
     "type": "longdrink",
     "name": {
@@ -8087,6 +10177,78 @@
       "vodka",
       "peach",
       "fruity"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "sherry-cobbler",
+    "type": "classic",
+    "name": {
+      "it": "Sherry Cobbler",
+      "en": "Sherry Cobbler"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Julep cup",
+      "en": "Julep cup"
+    },
+    "abv": 14,
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Sherry Amontillado",
+          "en": "Amontillado sherry"
+        }
+      },
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Sherry Palo Cortado",
+          "en": "Palo Cortado sherry"
+        }
+      },
+      {
+        "amount": 1,
+        "unit": "tsp",
+        "name": {
+          "it": "Zucchero fine",
+          "en": "Superfine sugar"
+        }
+      },
+      {
+        "amount": 0.5,
+        "unit": "slice",
+        "name": {
+          "it": "Ruota d’arancia",
+          "en": "Orange wheel"
+        }
+      },
+      {
+        "amount": 0.5,
+        "unit": "slice",
+        "name": {
+          "it": "Ruota di limone",
+          "en": "Lemon wheel"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Frutti di bosco e agrumi",
+      "en": "Fresh berries and citrus"
+    },
+    "notes": {
+      "it": "Un classico a bassa gradazione, vinoso e agrumato.",
+      "en": "A low-ABV classic with vinous and citrus character."
+    },
+    "tags": [
+      "iba",
+      "sherry",
+      "cobbler",
+      "low-abv"
     ],
     "status": "verified"
   },
@@ -8406,6 +10568,78 @@
     "status": "verified"
   },
   {
+    "slug": "spicy-fifty",
+    "type": "cocktail",
+    "name": {
+      "it": "Spicy Fifty",
+      "en": "Spicy Fifty"
+    },
+    "origin": "uk",
+    "glass": {
+      "it": "Coppa",
+      "en": "Cocktail glass"
+    },
+    "abv": 19,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka alla vaniglia",
+          "en": "Vanilla vodka"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Cordial ai fiori di sambuco",
+          "en": "Elderflower cordial"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo al miele",
+          "en": "Honey syrup"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "slice",
+        "name": {
+          "it": "Peperoncino rosso",
+          "en": "Red chili slices"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Peperoncino rosso",
+      "en": "Red chili pepper"
+    },
+    "notes": {
+      "it": "Dolce, floreale e piccante, con vaniglia e peperoncino.",
+      "en": "Sweet, floral and spicy, pairing vanilla with chili."
+    },
+    "tags": [
+      "iba",
+      "vodka",
+      "elderflower",
+      "spicy"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "spicy-margarita",
     "type": "cocktail",
     "name": {
@@ -8512,6 +10746,78 @@
       "brandy",
       "mint",
       "spirit-forward"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "suffering-bastard",
+    "type": "longdrink",
+    "name": {
+      "it": "Suffering Bastard",
+      "en": "Suffering Bastard"
+    },
+    "origin": "egypt",
+    "glass": {
+      "it": "Collins",
+      "en": "Collins glass"
+    },
+    "abv": 13,
+    "ingredients": [
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Cognac o brandy",
+          "en": "Cognac or brandy"
+        }
+      },
+      {
+        "amount": 30,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di lime",
+          "en": "Lime juice"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "dash",
+        "name": {
+          "it": "Angostura",
+          "en": "Angostura bitters"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Ginger beer",
+          "en": "Ginger beer"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Menta e arancia opzionale",
+      "en": "Mint and optional orange slice"
+    },
+    "notes": {
+      "it": "Speziato e dissetante, con gin, brandy e ginger beer.",
+      "en": "Spicy and refreshing, combining gin, brandy and ginger beer."
+    },
+    "tags": [
+      "iba",
+      "gin",
+      "brandy",
+      "ginger-beer"
     ],
     "status": "verified"
   },
@@ -8717,6 +11023,175 @@
       "rum",
       "tiki",
       "spiced"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "tipperary",
+    "type": "classic",
+    "name": {
+      "it": "Tipperary",
+      "en": "Tipperary"
+    },
+    "origin": "ireland",
+    "glass": {
+      "it": "Coppa Martini",
+      "en": "Martini glass"
+    },
+    "abv": 28,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Irish whiskey",
+          "en": "Irish whiskey"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Vermouth rosso",
+          "en": "Sweet red vermouth"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Chartreuse verde",
+          "en": "Green Chartreuse"
+        }
+      },
+      {
+        "amount": 2,
+        "unit": "dash",
+        "name": {
+          "it": "Angostura",
+          "en": "Angostura bitters"
+        }
+      }
+    ],
+    "technique": "stirred",
+    "garnish": {
+      "it": "Fetta d’arancia",
+      "en": "Orange slice"
+    },
+    "notes": {
+      "it": "Un Manhattan irlandese, erbaceo e complesso.",
+      "en": "An Irish whiskey classic with rich herbal complexity."
+    },
+    "tags": [
+      "iba",
+      "irish-whiskey",
+      "chartreuse",
+      "vermouth"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "tokyo-iced-tea",
+    "type": "longdrink",
+    "name": {
+      "it": "Tokyo Iced Tea",
+      "en": "Tokyo Iced Tea"
+    },
+    "origin": "usa",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 20,
+    "ingredients": [
+      {
+        "amount": 12.5,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 12.5,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 12.5,
+        "unit": "ml",
+        "name": {
+          "it": "Rum bianco",
+          "en": "White rum"
+        }
+      },
+      {
+        "amount": 12.5,
+        "unit": "ml",
+        "name": {
+          "it": "Tequila",
+          "en": "Tequila"
+        }
+      },
+      {
+        "amount": 12.5,
+        "unit": "ml",
+        "name": {
+          "it": "Triple sec",
+          "en": "Triple sec"
+        }
+      },
+      {
+        "amount": 12.5,
+        "unit": "ml",
+        "name": {
+          "it": "Liquore al melone",
+          "en": "Melon liqueur"
+        }
+      },
+      {
+        "amount": 25,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di limone",
+          "en": "Lemon juice"
+        }
+      },
+      {
+        "amount": 20,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo semplice",
+          "en": "Simple syrup"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Soda al limone e lime",
+          "en": "Lemon-lime soda"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Fetta di limone",
+      "en": "Lemon slice"
+    },
+    "notes": {
+      "it": "La variante verde e fruttata del Long Island, conosciuta anche come Tokyo Tea.",
+      "en": "The green, fruitier Long Island variation also known as Tokyo Tea."
+    },
+    "tags": [
+      "tokyo tea",
+      "tokio iced tea",
+      "long island",
+      "midori",
+      "melon"
     ],
     "status": "verified"
   },
@@ -9099,6 +11574,134 @@
     "status": "verified"
   },
   {
+    "slug": "ve-n-to",
+    "type": "cocktail",
+    "name": {
+      "it": "Ve.N.To",
+      "en": "Ve.N.To"
+    },
+    "origin": "italy",
+    "glass": {
+      "it": "Tumbler basso",
+      "en": "Small rocks glass"
+    },
+    "abv": 17,
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Grappa bianca morbida",
+          "en": "Soft white grappa"
+        }
+      },
+      {
+        "amount": 22.5,
+        "unit": "ml",
+        "name": {
+          "it": "Succo di limone",
+          "en": "Lemon juice"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Sciroppo al miele e camomilla",
+          "en": "Chamomile honey syrup"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Cordial alla camomilla",
+          "en": "Chamomile cordial"
+        }
+      },
+      {
+        "amount": 3,
+        "unit": "ml",
+        "name": {
+          "it": "Albume opzionale",
+          "en": "Optional egg white"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Scorza di limone e uva bianca",
+      "en": "Lemon zest and white grapes"
+    },
+    "notes": {
+      "it": "Un sour italiano delicato, floreale e profumato di camomilla.",
+      "en": "A delicate Italian sour scented with chamomile and white grapes."
+    },
+    "tags": [
+      "iba",
+      "grappa",
+      "chamomile",
+      "italy"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "vesper",
+    "type": "classic",
+    "name": {
+      "it": "Vesper",
+      "en": "Vesper"
+    },
+    "origin": "uk",
+    "glass": {
+      "it": "Coppa",
+      "en": "Cocktail glass"
+    },
+    "abv": 34,
+    "ingredients": [
+      {
+        "amount": 45,
+        "unit": "ml",
+        "name": {
+          "it": "Gin",
+          "en": "Gin"
+        }
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": 7.5,
+        "unit": "ml",
+        "name": {
+          "it": "Lillet Blanc",
+          "en": "Lillet Blanc"
+        }
+      }
+    ],
+    "technique": "shaken",
+    "garnish": {
+      "it": "Scorza di limone",
+      "en": "Lemon zest"
+    },
+    "notes": {
+      "it": "Secco, potente e agrumato, reso celebre da James Bond.",
+      "en": "Dry, powerful and citrus-led, famously associated with James Bond."
+    },
+    "tags": [
+      "iba",
+      "gin",
+      "vodka",
+      "martini"
+    ],
+    "status": "verified"
+  },
+  {
     "slug": "vieux-carre",
     "type": "classic",
     "name": {
@@ -9434,6 +12037,102 @@
       "mocktail",
       "coconut",
       "tropical"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "vodka-lemon",
+    "type": "longdrink",
+    "name": {
+      "it": "Vodka Lemon",
+      "en": "Vodka Lemon"
+    },
+    "origin": "italy",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 10,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Soda al limone",
+          "en": "Lemon soda"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Fetta di limone",
+      "en": "Lemon slice"
+    },
+    "notes": {
+      "it": "Un long drink italiano semplice, dolce-agrumato e dissetante.",
+      "en": "A simple Italian long drink with a sweet citrus profile."
+    },
+    "tags": [
+      "vodka",
+      "lemon",
+      "italy",
+      "easy"
+    ],
+    "status": "verified"
+  },
+  {
+    "slug": "vodka-tonic",
+    "type": "longdrink",
+    "name": {
+      "it": "Vodka Tonic",
+      "en": "Vodka Tonic"
+    },
+    "origin": "international",
+    "glass": {
+      "it": "Highball",
+      "en": "Highball"
+    },
+    "abv": 10,
+    "ingredients": [
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": {
+          "it": "Vodka",
+          "en": "Vodka"
+        }
+      },
+      {
+        "amount": null,
+        "unit": "top",
+        "name": {
+          "it": "Acqua tonica",
+          "en": "Tonic water"
+        }
+      }
+    ],
+    "technique": "built",
+    "garnish": {
+      "it": "Fetta di lime",
+      "en": "Lime wedge"
+    },
+    "notes": {
+      "it": "Pulito, secco e facilissimo da preparare.",
+      "en": "Clean, dry and extremely easy to prepare."
+    },
+    "tags": [
+      "vodka",
+      "tonic",
+      "highball",
+      "easy"
     ],
     "status": "verified"
   },
