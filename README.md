@@ -1,6 +1,6 @@
 # Bar Atlas
 
-App statica/PWA per consultare ricette cocktail, salvare preferiti, creare liste e filtrare le ricette in base alla propria dispensa.
+App statica/PWA per consultare ricette cocktail, cercarle per nome, salvare preferiti e creare liste personali.
 
 ## Avvio locale
 
@@ -25,7 +25,16 @@ La workflow valida automaticamente `recipes.json`, controlla la sintassi JavaScr
 
 - `index.html`: struttura dell'interfaccia.
 - `styles.css`: tema responsive chiaro/scuro.
-- `app.js`: ricerca, filtri, preferiti, liste, profilo, dispensa, backup e PWA.
-- `recipes.json`: unico database con 160 ricette complete.
+- `app.js`: ricerca per nome, filtri, preferiti, liste, profilo, backup e PWA.
+- `recipes.json`: unico database con 200 ricette complete.
 - `manifest.webmanifest` e `service-worker.js`: installazione e uso offline.
 - `scripts/validate-recipes.mjs`: validazione eseguita da GitHub Actions.
+
+## Aggiornamento v1.2.0
+
+- Database con 200 ricette complete.
+- Ricerca limitata ai nomi dei cocktail e ai loro nomi alternativi.
+- Rimossi filtro “Preparabili” e gestione della dispensa per rendere l’interfaccia più chiara.
+- Aggiunti i 27 cocktail mancanti dalla lista IBA confrontata nel giugno 2026.
+- Aggiunti Long Island Iced Tea, Tokyo Iced Tea, Electric Iced Tea, Gin Tonic, Vodka Tonic, Gin Lemon, Vodka Lemon e Screwdriver.
+- Aggiunte variazioni alla fragola e tropicali di Daiquiri, Caipiroska, Mojito e Margarita.

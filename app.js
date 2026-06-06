@@ -8,45 +8,44 @@ const STORAGE = {
   saved: 'ba-saved-v2',
   playlists: 'ba-playlists-v2',
   profile: 'ba-profile-v2',
-  pantry: 'ba-pantry-v2',
   customRecipes: 'ba-custom-recipes-v2',
 };
 
 const I18N = {
   it: {
     hero_eyebrow: 'Atlante personale di mixology', hero_title: 'Trova il drink giusto.', hero_copy: 'Cerca tra classici, tiki, aperitivi, shot e analcolici. Tutto resta sul tuo dispositivo.',
-    search_placeholder: 'Cerca ricetta, ingrediente o gusto…', filter_type: 'Tipo', filter_technique: 'Tecnica', filter_sort: 'Ordina', filter_all: 'Tutti',
-    sort_name: 'Nome', sort_abv_asc: 'Gradazione crescente', sort_abv_desc: 'Gradazione decrescente', quick_all: 'Tutte', quick_saved: 'Salvate', quick_makeable: 'Preparabili', quick_mocktail: 'Analcoliche',
+    search_placeholder: 'Cerca un cocktail per nome…', filter_type: 'Tipo', filter_technique: 'Tecnica', filter_sort: 'Ordina', filter_all: 'Tutti',
+    sort_name: 'Nome', sort_abv_asc: 'Gradazione crescente', sort_abv_desc: 'Gradazione decrescente', quick_all: 'Tutte', quick_saved: 'Salvate', quick_mocktail: 'Analcoliche',
     catalogue: 'Catalogo', recipes: 'Ricette', recipe: 'Ricetta', add_recipe: 'Aggiungi', load_more: 'Mostra altre', learn: 'Conoscere per miscelare', spirits: 'Distillati', spirits_intro: 'Una guida rapida alle principali basi da bar e ai loro profili aromatici.',
     organize: 'Organizza', lists: 'Liste', lists_intro: 'Raccogli ricette per serate, occasioni o ingredienti.', new_list: 'Nuova lista', back: 'Indietro', list_detail: 'Dettaglio lista', delete_list: 'Elimina lista', profile: 'Profilo',
-    my_bar: 'Il mio bar', default_bio: 'Appassionato di mixology', edit: 'Modifica', saved: 'Salvate', makeable: 'Preparabili', pantry: 'Dispensa', what_have: 'Cosa hai a casa?', clear: 'Svuota', pantry_help: 'Scrivi gli ingredienti separati da virgole. Il filtro “Preparabili” userà questa lista.', pantry_placeholder: 'gin, lime, soda, Campari…', save_pantry: 'Salva dispensa',
-    preferences: 'Preferenze', app_settings: 'Impostazioni app', language: 'Lingua', units: 'Unità', dark_mode: 'Tema scuro', install_app: 'Installa app', install: 'Installa', data: 'Dati', backup: 'Backup e ripristino', backup_help: 'Esporta preferiti, liste, profilo, dispensa e ricette personali.', export: 'Esporta dati', import: 'Importa dati', about: 'Informazioni', about_text: 'Le dosi sono indicazioni standard: ricette e gradazioni possono variare in base ai prodotti usati. Bevi responsabilmente.',
+    my_bar: 'Il mio bar', default_bio: 'Appassionato di mixology', edit: 'Modifica', saved: 'Salvate',
+    preferences: 'Preferenze', app_settings: 'Impostazioni app', language: 'Lingua', units: 'Unità', dark_mode: 'Tema scuro', install_app: 'Installa app', install: 'Installa', data: 'Dati', backup: 'Backup e ripristino', backup_help: 'Esporta preferiti, liste, profilo e ricette personali.', export: 'Esporta dati', import: 'Importa dati', about: 'Informazioni', about_text: 'Le dosi sono indicazioni standard: ricette e gradazioni possono variare in base ai prodotti usati. Bevi responsabilmente.',
     ingredients: 'Ingredienti', preparation: 'Preparazione', garnish: 'Guarnizione', notes: 'Note', add_to_list: 'Aggiungi a lista', share: 'Condividi', delete: 'Elimina', history: 'Storia', aroma: 'Profilo aromatico', classic_cocktails: 'Cocktail classici',
     personal_recipe: 'Ricetta personale', name: 'Nome', type: 'Tipo', glass: 'Bicchiere', origin: 'Origine', abv: 'Gradazione %', technique: 'Tecnica', ingredients_lines: 'Ingredienti, uno per riga', cancel: 'Annulla', save_recipe: 'Salva ricetta', bio: 'Bio', banner_color: 'Colore banner', save: 'Salva', list_name: 'Nome lista', emoji: 'Emoji', create: 'Crea', create_new_list: 'Crea nuova lista',
     empty_title: 'Nessun risultato', empty_text: 'Prova a cambiare ricerca o filtri.', empty_lists: 'Non hai ancora creato liste.', empty_list: 'Questa lista è vuota.',
-    saved_add: 'Salva', saved_remove: 'Rimuovi dai salvati', toast_saved: 'Ricetta salvata', toast_unsaved: 'Ricetta rimossa dai salvati', toast_list_added: 'Aggiunta alla lista', toast_list_removed: 'Rimossa dalla lista', toast_list_created: 'Lista creata', toast_list_deleted: 'Lista eliminata', toast_recipe_created: 'Ricetta personale salvata', toast_recipe_deleted: 'Ricetta personale eliminata', toast_profile: 'Profilo aggiornato', toast_pantry: 'Dispensa aggiornata', toast_export: 'Backup esportato', toast_import: 'Backup importato', toast_invalid_import: 'File di backup non valido', toast_shared: 'Link copiato', toast_install_unavailable: 'Apri il menu del browser e scegli “Aggiungi a schermata Home”.', confirm_delete_list: 'Eliminare questa lista?', confirm_delete_recipe: 'Eliminare questa ricetta personale?',
-    online: 'Online', offline: 'Offline', custom: 'Personale', missing_pantry: 'Aggiungi ingredienti alla dispensa per usare questo filtro.', recipes_count: 'ricette', one_recipe: 'ricetta', no_garnish: 'Nessuna', optional: 'opzionale',
+    saved_add: 'Salva', saved_remove: 'Rimuovi dai salvati', toast_saved: 'Ricetta salvata', toast_unsaved: 'Ricetta rimossa dai salvati', toast_list_added: 'Aggiunta alla lista', toast_list_removed: 'Rimossa dalla lista', toast_list_created: 'Lista creata', toast_list_deleted: 'Lista eliminata', toast_recipe_created: 'Ricetta personale salvata', toast_recipe_deleted: 'Ricetta personale eliminata', toast_profile: 'Profilo aggiornato', toast_export: 'Backup esportato', toast_import: 'Backup importato', toast_invalid_import: 'File di backup non valido', toast_shared: 'Link copiato', toast_install_unavailable: 'Apri il menu del browser e scegli “Aggiungi a schermata Home”.', confirm_delete_list: 'Eliminare questa lista?', confirm_delete_recipe: 'Eliminare questa ricetta personale?',
+    online: 'Online', offline: 'Offline', custom: 'Personale', recipes_count: 'ricette', one_recipe: 'ricetta', no_garnish: 'Nessuna', optional: 'opzionale',
     types: { classic: 'Classico', cocktail: 'Cocktail', longdrink: 'Long drink', shot: 'Shot', mocktail: 'Analcolico', hot: 'Caldo' },
     techniques: { shaken: 'Shakerato', stirred: 'Mescolato', built: 'Diretto', blended: 'Frullato', muddled: 'Pestato', 'dry-shake': 'Dry shake', layered: 'A strati' },
-    origins: { italy: 'Italia', usa: 'USA', uk: 'Regno Unito', france: 'Francia', cuba: 'Cuba', mexico: 'Messico', brazil: 'Brasile', spain: 'Spagna', germany: 'Germania', ireland: 'Irlanda', belgium: 'Belgio', canada: 'Canada', japan: 'Giappone', singapore: 'Singapore', malaysia: 'Malesia', jamaica: 'Giamaica', peru: 'Perù', bermuda: 'Bermuda', bahamas: 'Bahamas', 'puerto-rico': 'Porto Rico', 'british-virgin-islands': 'Isole Vergini Britanniche', asia: 'Asia', international: 'Internazionale' },
+    origins: { italy: 'Italia', usa: 'USA', uk: 'Regno Unito', france: 'Francia', cuba: 'Cuba', mexico: 'Messico', brazil: 'Brasile', spain: 'Spagna', germany: 'Germania', ireland: 'Irlanda', belgium: 'Belgio', canada: 'Canada', japan: 'Giappone', singapore: 'Singapore', malaysia: 'Malesia', jamaica: 'Giamaica', peru: 'Perù', bermuda: 'Bermuda', bahamas: 'Bahamas', 'puerto-rico': 'Porto Rico', 'british-virgin-islands': 'Isole Vergini Britanniche', argentina: 'Argentina', portugal: 'Portogallo', egypt: 'Egitto', asia: 'Asia', international: 'Internazionale' },
     unitsMap: { ml: 'ml', cl: 'cl', oz: 'oz', dash: 'dash', rinse: 'risciacquo', leaf: 'foglie', piece: 'pezzi', whole: 'intero', tsp: 'cucchiaini', pinch: 'pizzico', slice: 'fette', top: 'top' }
   },
   en: {
     hero_eyebrow: 'Your personal mixology atlas', hero_title: 'Find the right drink.', hero_copy: 'Browse classics, tiki drinks, aperitifs, shots and alcohol-free recipes. Your data stays on your device.',
-    search_placeholder: 'Search recipe, ingredient or flavor…', filter_type: 'Type', filter_technique: 'Technique', filter_sort: 'Sort', filter_all: 'All',
-    sort_name: 'Name', sort_abv_asc: 'ABV low to high', sort_abv_desc: 'ABV high to low', quick_all: 'All', quick_saved: 'Saved', quick_makeable: 'Makeable', quick_mocktail: 'Alcohol-free',
+    search_placeholder: 'Search cocktails by name…', filter_type: 'Type', filter_technique: 'Technique', filter_sort: 'Sort', filter_all: 'All',
+    sort_name: 'Name', sort_abv_asc: 'ABV low to high', sort_abv_desc: 'ABV high to low', quick_all: 'All', quick_saved: 'Saved', quick_mocktail: 'Alcohol-free',
     catalogue: 'Catalogue', recipes: 'Recipes', recipe: 'Recipe', add_recipe: 'Add', load_more: 'Show more', learn: 'Know what you mix', spirits: 'Spirits', spirits_intro: 'A quick guide to the main bar bases and their flavor profiles.',
     organize: 'Organize', lists: 'Lists', lists_intro: 'Collect recipes for evenings, occasions or ingredients.', new_list: 'New list', back: 'Back', list_detail: 'List details', delete_list: 'Delete list', profile: 'Profile',
-    my_bar: 'My bar', default_bio: 'Mixology enthusiast', edit: 'Edit', saved: 'Saved', makeable: 'Makeable', pantry: 'Pantry', what_have: 'What do you have?', clear: 'Clear', pantry_help: 'Enter ingredients separated by commas. The “Makeable” filter will use this list.', pantry_placeholder: 'gin, lime, soda, Campari…', save_pantry: 'Save pantry',
-    preferences: 'Preferences', app_settings: 'App settings', language: 'Language', units: 'Units', dark_mode: 'Dark mode', install_app: 'Install app', install: 'Install', data: 'Data', backup: 'Backup and restore', backup_help: 'Export saved recipes, lists, profile, pantry and personal recipes.', export: 'Export data', import: 'Import data', about: 'About', about_text: 'Measures are standard guidelines: recipes and ABV may vary depending on the products used. Drink responsibly.',
+    my_bar: 'My bar', default_bio: 'Mixology enthusiast', edit: 'Edit', saved: 'Saved',
+    preferences: 'Preferences', app_settings: 'App settings', language: 'Language', units: 'Units', dark_mode: 'Dark mode', install_app: 'Install app', install: 'Install', data: 'Data', backup: 'Backup and restore', backup_help: 'Export saved recipes, lists, profile and personal recipes.', export: 'Export data', import: 'Import data', about: 'About', about_text: 'Measures are standard guidelines: recipes and ABV may vary depending on the products used. Drink responsibly.',
     ingredients: 'Ingredients', preparation: 'Preparation', garnish: 'Garnish', notes: 'Notes', add_to_list: 'Add to list', share: 'Share', delete: 'Delete', history: 'History', aroma: 'Flavor profile', classic_cocktails: 'Classic cocktails',
     personal_recipe: 'Personal recipe', name: 'Name', type: 'Type', glass: 'Glass', origin: 'Origin', abv: 'ABV %', technique: 'Technique', ingredients_lines: 'Ingredients, one per line', cancel: 'Cancel', save_recipe: 'Save recipe', bio: 'Bio', banner_color: 'Banner color', save: 'Save', list_name: 'List name', emoji: 'Emoji', create: 'Create', create_new_list: 'Create new list',
     empty_title: 'No results', empty_text: 'Try changing your search or filters.', empty_lists: 'You have not created any lists yet.', empty_list: 'This list is empty.',
-    saved_add: 'Save', saved_remove: 'Remove from saved', toast_saved: 'Recipe saved', toast_unsaved: 'Recipe removed from saved', toast_list_added: 'Added to list', toast_list_removed: 'Removed from list', toast_list_created: 'List created', toast_list_deleted: 'List deleted', toast_recipe_created: 'Personal recipe saved', toast_recipe_deleted: 'Personal recipe deleted', toast_profile: 'Profile updated', toast_pantry: 'Pantry updated', toast_export: 'Backup exported', toast_import: 'Backup imported', toast_invalid_import: 'Invalid backup file', toast_shared: 'Link copied', toast_install_unavailable: 'Open the browser menu and choose “Add to Home Screen”.', confirm_delete_list: 'Delete this list?', confirm_delete_recipe: 'Delete this personal recipe?',
-    online: 'Online', offline: 'Offline', custom: 'Personal', missing_pantry: 'Add ingredients to your pantry to use this filter.', recipes_count: 'recipes', one_recipe: 'recipe', no_garnish: 'None', optional: 'optional',
+    saved_add: 'Save', saved_remove: 'Remove from saved', toast_saved: 'Recipe saved', toast_unsaved: 'Recipe removed from saved', toast_list_added: 'Added to list', toast_list_removed: 'Removed from list', toast_list_created: 'List created', toast_list_deleted: 'List deleted', toast_recipe_created: 'Personal recipe saved', toast_recipe_deleted: 'Personal recipe deleted', toast_profile: 'Profile updated', toast_export: 'Backup exported', toast_import: 'Backup imported', toast_invalid_import: 'Invalid backup file', toast_shared: 'Link copied', toast_install_unavailable: 'Open the browser menu and choose “Add to Home Screen”.', confirm_delete_list: 'Delete this list?', confirm_delete_recipe: 'Delete this personal recipe?',
+    online: 'Online', offline: 'Offline', custom: 'Personal', recipes_count: 'recipes', one_recipe: 'recipe', no_garnish: 'None', optional: 'optional',
     types: { classic: 'Classic', cocktail: 'Cocktail', longdrink: 'Long drink', shot: 'Shot', mocktail: 'Alcohol-free', hot: 'Hot' },
     techniques: { shaken: 'Shaken', stirred: 'Stirred', built: 'Built', blended: 'Blended', muddled: 'Muddled', 'dry-shake': 'Dry shake', layered: 'Layered' },
-    origins: { italy: 'Italy', usa: 'USA', uk: 'United Kingdom', france: 'France', cuba: 'Cuba', mexico: 'Mexico', brazil: 'Brazil', spain: 'Spain', germany: 'Germany', ireland: 'Ireland', belgium: 'Belgium', canada: 'Canada', japan: 'Japan', singapore: 'Singapore', malaysia: 'Malaysia', jamaica: 'Jamaica', peru: 'Peru', bermuda: 'Bermuda', bahamas: 'Bahamas', 'puerto-rico': 'Puerto Rico', 'british-virgin-islands': 'British Virgin Islands', asia: 'Asia', international: 'International' },
+    origins: { italy: 'Italy', usa: 'USA', uk: 'United Kingdom', france: 'France', cuba: 'Cuba', mexico: 'Mexico', brazil: 'Brazil', spain: 'Spain', germany: 'Germany', ireland: 'Ireland', belgium: 'Belgium', canada: 'Canada', japan: 'Japan', singapore: 'Singapore', malaysia: 'Malaysia', jamaica: 'Jamaica', peru: 'Peru', bermuda: 'Bermuda', bahamas: 'Bahamas', 'puerto-rico': 'Puerto Rico', 'british-virgin-islands': 'British Virgin Islands', argentina: 'Argentina', portugal: 'Portugal', egypt: 'Egypt', asia: 'Asia', international: 'International' },
     unitsMap: { ml: 'ml', cl: 'cl', oz: 'oz', dash: 'dash', rinse: 'rinse', leaf: 'leaves', piece: 'pieces', whole: 'whole', tsp: 'tsp', pinch: 'pinch', slice: 'slices', top: 'top' }
   }
 };
@@ -74,7 +73,6 @@ const state = {
     { id: crypto.randomUUID?.() || `list-${Date.now()}-2`, name: 'Aperitivo', emoji: '🍊', slugs: ['negroni', 'americano', 'aperol-spritz'] }
   ]),
   profile: readStorage(STORAGE.profile, { name: 'Barman', bio: '', color: '#5b3512' }),
-  pantry: readStorage(STORAGE.pantry, []),
   activeView: 'recipes',
   quickFilter: 'all',
   visibleCount: 24,
@@ -164,30 +162,10 @@ function techniqueLabel(technique) {
 
 function recipeSearchText(recipe) {
   return normalize([
-    text(recipe.name, 'it'), text(recipe.name, 'en'),
-    recipe.origin, typeLabel(recipe.type), techniqueLabel(recipe.technique),
-    ...(recipe.tags || []),
-    ...(recipe.ingredients || []).flatMap(item => [text(item.name, 'it'), text(item.name, 'en')])
+    text(recipe.name, 'it'),
+    text(recipe.name, 'en'),
+    ...(recipe.aliases || [])
   ].join(' '));
-}
-
-const BASIC_INGREDIENTS = new Set([
-  'acqua', 'water', 'acqua calda', 'hot water', 'soda', 'soda water', 'sale', 'salt', 'pepe nero', 'black pepper', 'zucchero', 'sugar', 'sciroppo semplice', 'simple syrup'
-].map(normalize));
-
-function pantryHas(ingredient) {
-  const nameIt = normalize(text(ingredient.name, 'it'));
-  const nameEn = normalize(text(ingredient.name, 'en'));
-  if (BASIC_INGREDIENTS.has(nameIt) || BASIC_INGREDIENTS.has(nameEn)) return true;
-  return state.pantry.some(entry => {
-    const item = normalize(entry);
-    return item && (nameIt.includes(item) || item.includes(nameIt) || nameEn.includes(item) || item.includes(nameEn));
-  });
-}
-
-function isMakeable(recipe) {
-  if (!state.pantry.length) return false;
-  return recipe.ingredients.every(pantryHas);
 }
 
 function getFilteredRecipes() {
@@ -200,7 +178,6 @@ function getFilteredRecipes() {
     if (type && recipe.type !== type) return false;
     if (technique && recipe.technique !== technique) return false;
     if (state.quickFilter === 'saved' && !state.saved.has(recipe.slug)) return false;
-    if (state.quickFilter === 'makeable' && !isMakeable(recipe)) return false;
     if (state.quickFilter === 'mocktail' && recipe.type !== 'mocktail') return false;
     return true;
   });
@@ -287,7 +264,7 @@ function renderRecipes() {
   if (!visible.length) {
     const empty = makeElement('div', { class: 'empty-state' }, [
       makeElement('strong', { text: tr('empty_title') }),
-      makeElement('span', { text: state.quickFilter === 'makeable' && !state.pantry.length ? tr('missing_pantry') : tr('empty_text') })
+      makeElement('span', { text: tr('empty_text') })
     ]);
     grid.append(empty);
   } else {
@@ -515,12 +492,9 @@ function renderProfile() {
   $('#profile-name').textContent = state.profile.name || 'Barman';
   $('#profile-bio').textContent = state.profile.bio || tr('default_bio');
   $('#profile-banner').style.setProperty('--profile-color', state.profile.color || '#5b3512');
-  $('#pantry-input').value = state.pantry.join(', ');
   $('#setting-language').value = state.language;
   $('#setting-units').value = state.units;
   $('#setting-theme').checked = state.theme === 'dark';
-  const tags = $('#pantry-tags');
-  tags.replaceChildren(...state.pantry.map(item => makeElement('span', { class: 'tag', text: item })));
   renderStats();
 }
 
@@ -528,17 +502,7 @@ function renderStats() {
   $('#stat-recipes').textContent = allRecipes().length;
   $('#stat-saved').textContent = state.saved.size;
   $('#stat-lists').textContent = state.playlists.length;
-  $('#stat-makeable').textContent = allRecipes().filter(isMakeable).length;
   $('#data-version').textContent = state.baseRecipes.length;
-}
-
-function savePantry() {
-  state.pantry = $('#pantry-input').value.split(/[,\n;]/).map(item => item.trim()).filter(Boolean);
-  state.pantry = [...new Set(state.pantry)];
-  writeStorage(STORAGE.pantry, state.pantry);
-  showToast(tr('toast_pantry'));
-  renderProfile();
-  renderRecipes();
 }
 
 function parseIngredientLine(line) {
@@ -612,7 +576,7 @@ function shareActiveRecipe() {
 function exportData() {
   const payload = {
     app: 'Bar Atlas', version: 2, exportedAt: new Date().toISOString(),
-    saved: [...state.saved], playlists: state.playlists, profile: state.profile, pantry: state.pantry,
+    saved: [...state.saved], playlists: state.playlists, profile: state.profile,
     customRecipes: state.customRecipes, language: state.language, units: state.units, theme: state.theme
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
@@ -632,7 +596,6 @@ async function importData(file) {
     state.saved = new Set(payload.saved.filter(value => typeof value === 'string'));
     state.playlists = payload.playlists;
     state.profile = payload.profile || state.profile;
-    state.pantry = Array.isArray(payload.pantry) ? payload.pantry : [];
     state.customRecipes = Array.isArray(payload.customRecipes) ? payload.customRecipes : [];
     if (['it', 'en'].includes(payload.language)) state.language = payload.language;
     if (['ml', 'cl', 'oz'].includes(payload.units)) state.units = payload.units;
@@ -656,7 +619,6 @@ function persistAll() {
   writeStorage(STORAGE.saved, [...state.saved]);
   writeStorage(STORAGE.playlists, state.playlists);
   writeStorage(STORAGE.profile, state.profile);
-  writeStorage(STORAGE.pantry, state.pantry);
   writeStorage(STORAGE.customRecipes, state.customRecipes);
 }
 
@@ -811,8 +773,6 @@ function bindEvents() {
     renderProfile();
     showToast(tr('toast_profile'));
   });
-  $('#save-pantry').addEventListener('click', savePantry);
-  $('#clear-pantry').addEventListener('click', () => { $('#pantry-input').value = ''; state.pantry = []; writeStorage(STORAGE.pantry, []); renderProfile(); renderRecipes(); });
   $('#setting-language').addEventListener('change', event => { state.language = event.target.value; writeStorage(STORAGE.language, state.language); applyLanguage(); });
   $('#language-quick').addEventListener('click', () => { state.language = state.language === 'it' ? 'en' : 'it'; writeStorage(STORAGE.language, state.language); applyLanguage(); });
   $('#setting-units').addEventListener('change', event => { state.units = event.target.value; writeStorage(STORAGE.units, state.units); if ($('#recipe-dialog').open && state.activeRecipe) openRecipe(state.activeRecipe, false); });

@@ -47,7 +47,7 @@
       <div class="search-panel">
         <label class="search-box" for="search-input">
           <span class="search-symbol" aria-hidden="true">⌕</span>
-          <input id="search-input" type="search" autocomplete="off" data-i18n-placeholder="search_placeholder" placeholder="Cerca ricetta, ingrediente o gusto…">
+          <input id="search-input" type="search" autocomplete="off" data-i18n-placeholder="search_placeholder" placeholder="Cerca un cocktail per nome…">
           <button class="clear-search" id="clear-search" type="button" aria-label="Cancella ricerca">×</button>
         </label>
         <div class="filter-grid">
@@ -75,7 +75,6 @@
         <div class="quick-filters" id="quick-filters" aria-label="Filtri rapidi">
           <button class="chip active" type="button" data-quick="all" data-i18n="quick_all">Tutte</button>
           <button class="chip" type="button" data-quick="saved" data-i18n="quick_saved">Salvate</button>
-          <button class="chip" type="button" data-quick="makeable" data-i18n="quick_makeable">Preparabili</button>
           <button class="chip" type="button" data-quick="mocktail" data-i18n="quick_mocktail">Analcoliche</button>
         </div>
       </div>
@@ -143,26 +142,9 @@
         <article><strong id="stat-recipes">0</strong><span data-i18n="recipes">Ricette</span></article>
         <article><strong id="stat-saved">0</strong><span data-i18n="saved">Salvate</span></article>
         <article><strong id="stat-lists">0</strong><span data-i18n="lists">Liste</span></article>
-        <article><strong id="stat-makeable">0</strong><span data-i18n="makeable">Preparabili</span></article>
       </div>
 
       <div class="settings-grid">
-        <article class="panel-card pantry-card">
-          <div class="card-title-row">
-            <div>
-              <p class="eyebrow" data-i18n="pantry">Dispensa</p>
-              <h2 data-i18n="what_have">Cosa hai a casa?</h2>
-            </div>
-            <button class="text-button" id="clear-pantry" type="button" data-i18n="clear">Svuota</button>
-          </div>
-          <p class="muted" data-i18n="pantry_help">Scrivi gli ingredienti separati da virgole. Il filtro “Preparabili” userà questa lista.</p>
-          <label class="field">
-            <span data-i18n="ingredients">Ingredienti</span>
-            <textarea id="pantry-input" rows="4" data-i18n-placeholder="pantry_placeholder" placeholder="gin, lime, soda, Campari…"></textarea>
-          </label>
-          <button class="primary-btn full" id="save-pantry" type="button" data-i18n="save_pantry">Salva dispensa</button>
-          <div class="pantry-tags" id="pantry-tags"></div>
-        </article>
 
         <article class="panel-card">
           <p class="eyebrow" data-i18n="preferences">Preferenze</p>
@@ -198,7 +180,7 @@
         <article class="panel-card">
           <p class="eyebrow" data-i18n="data">Dati</p>
           <h2 data-i18n="backup">Backup e ripristino</h2>
-          <p class="muted" data-i18n="backup_help">Esporta preferiti, liste, profilo, dispensa e ricette personali.</p>
+          <p class="muted" data-i18n="backup_help">Esporta preferiti, liste, profilo e ricette personali.</p>
           <div class="button-stack">
             <button class="secondary-btn full" id="export-data" type="button" data-i18n="export">Esporta dati</button>
             <label class="secondary-btn full file-button">
@@ -212,7 +194,7 @@
           <p class="eyebrow" data-i18n="about">Informazioni</p>
           <h2>Bar Atlas</h2>
           <p class="muted" data-i18n="about_text">Le dosi sono indicazioni standard: ricette e gradazioni possono variare in base ai prodotti usati. Bevi responsabilmente.</p>
-          <p class="version">v1.0.0 · <span id="data-version">160</span> ricette</p>
+          <p class="version">v1.2.0 · <span id="data-version">200</span> ricette</p>
         </article>
       </div>
     </section>

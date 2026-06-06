@@ -324,7 +324,7 @@ html.dark .type-pill.mocktail, html.dark .type-pill.shot, html.dark .type-pill.l
 .profile-banner h1 { font-size: clamp(2rem, 5vw, 3.3rem); }
 .profile-banner p { margin: .35rem 0 0; color: #d5c8b3; }
 .avatar { width: 68px; height: 68px; border-radius: 22px; display: grid; place-items: center; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: var(--gold); font-family: Georgia, serif; font-weight: 900; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; margin-bottom: 1rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-bottom: 1rem; }
 .stats-grid article { background: var(--surface); border: 1px solid var(--line); border-radius: 15px; padding: 1rem; text-align: center; }
 .stats-grid strong { display: block; font-family: Georgia, serif; font-size: 1.6rem; }
 .stats-grid span { color: var(--muted); font-size: .72rem; }
@@ -344,7 +344,6 @@ html.dark .type-pill.mocktail, html.dark .type-pill.shot, html.dark .type-pill.l
 .button-stack { display: grid; gap: .65rem; }
 .file-button { display: block; cursor: pointer; }
 .file-button input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; }
-.pantry-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .8rem; }
 .version { color: var(--muted); font-size: .78rem; margin-bottom: 0; }
 
 .bottom-nav {

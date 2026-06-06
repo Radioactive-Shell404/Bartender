@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'bar-atlas-v1.0.0';
+const CACHE_VERSION = 'bar-atlas-v1.2.0';
 const APP_SHELL = [
   './',
   './index.html',
@@ -57,10 +57,15 @@ self.addEventListener('fetch', event => {
   }
 
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
-      const copy = response.clone();
-      caches.open(CACHE_VERSION).then(cache => cache.put(event.request, copy));
-      return response;
-    }))
+    caches.match(event.request).then(cached => {
+      const networkUpdate = fetch(event.request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE_VERSION).then(cache => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => cached);
+      return cached || networkUpdate;
+    })
   );
 });
