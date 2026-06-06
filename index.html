@@ -1,1304 +1,326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#1A1209">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Bar Atlas">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="description" content="Il tuo atlante dei cocktail">
-<title>Bar Atlas</title>
-
-<!-- PWA Manifest inline -->
-<link rel="manifest" href="data:application/json,{%22name%22:%22Bar%20Atlas%22,%22short_name%22:%22Bar%20Atlas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%231A1209%22,%22theme_color%22:%22%231A1209%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Crect%20width='96'%20height='96'%20fill='%231A1209'/%3E%3Ctext%20y='68'%20x='14'%20font-size='62'%3E%F0%9F%8D%B8%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22any%22,%22type%22:%22image/svg+xml%22}]}">
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{
-  --gold:#C9A84C;--gold-l:#E8D5A3;--gold-d:#8B6914;
-  --ink:#1A1209;--ink2:#251a0e;
-  --paper:#F7F3EC;--cream:#EDE8DC;--muted:#7A6A52;
-  --border:#D4C9A8;--card:#FFFDF7;--accent:#8B2E0F;
-  --safe-top:env(safe-area-inset-top,0px);
-  --safe-bottom:env(safe-area-inset-bottom,0px);
-}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden;padding-bottom:calc(70px + var(--safe-bottom))}
-h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif}
-
-/* ── TOP NAV ── */
-.topbar{
-  background:var(--ink);
-  padding:0 1.25rem;
-  display:flex;align-items:center;
-  position:sticky;top:0;z-index:100;
-  border-bottom:1px solid #3a2d1a;
-  height:56px;
-  padding-top:var(--safe-top);
-}
-.logo{
-  font-family:'Cormorant Garamond',serif;
-  color:var(--gold);font-size:1.4rem;font-weight:600;
-  letter-spacing:1.5px;cursor:pointer;
-  display:flex;align-items:center;gap:.45rem;
-  text-decoration:none;
-}
-.logo-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;margin-bottom:2px}
-.topbar-right{display:flex;gap:.5rem;align-items:center;margin-left:auto}
-.lang-btn{
-  background:transparent;border:1px solid #3a2d1a;
-  color:var(--gold);font-family:'DM Sans',sans-serif;
-  font-size:.68rem;font-weight:500;letter-spacing:.1em;
-  text-transform:uppercase;padding:.28rem .62rem;
-  border-radius:2px;cursor:pointer;transition:.2s;
-}
-.lang-btn:hover,.lang-btn.active{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-.online-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:#4ade80;flex-shrink:0;
-  box-shadow:0 0 0 2px rgba(74,222,128,.25);
-}
-.online-dot.offline{background:#f87171;box-shadow:0 0 0 2px rgba(248,113,113,.25)}
-
-/* ── BOTTOM NAV (mobile-first) ── */
-.bottom-nav{
-  position:fixed;bottom:0;left:0;right:0;z-index:100;
-  background:var(--ink);
-  border-top:1px solid #3a2d1a;
-  display:flex;
-  padding-bottom:var(--safe-bottom);
-}
-.bnav-item{
-  flex:1;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:.65rem .5rem .5rem;
-  background:none;border:none;
-  color:#6a5a42;cursor:pointer;
-  font-family:'DM Sans',sans-serif;
-  font-size:.58rem;font-weight:500;
-  letter-spacing:.07em;text-transform:uppercase;
-  gap:.3rem;transition:.15s;
-  position:relative;
-}
-.bnav-item i{font-size:1.05rem;transition:.15s}
-.bnav-item.active{color:var(--gold)}
-.bnav-item.active i{color:var(--gold)}
-.bnav-item::after{
-  content:'';position:absolute;top:0;left:25%;right:25%;
-  height:2px;background:var(--gold);
-  transform:scaleX(0);transition:.2s;border-radius:0 0 2px 2px;
-}
-.bnav-item.active::after{transform:scaleX(1)}
-
-/* ── SECTIONS ── */
-.section{display:none;padding:1.5rem 1rem;max-width:900px;margin:0 auto}
-.section.active{display:block}
-@media(min-width:600px){.section{padding:2rem 1.5rem}}
-
-.sec-header{display:flex;align-items:baseline;gap:.85rem;margin-bottom:.35rem;flex-wrap:wrap}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--ink)}
-.sec-sub{font-size:.78rem;color:var(--muted)}
-.divider{border:none;border-top:1px solid var(--border);margin:.7rem 0 1.2rem}
-
-/* ── SMART SEARCH ── */
-.smart-search-wrap{position:relative;margin-bottom:1.5rem}
-.smart-search{
-  display:flex;align-items:center;gap:0;
-  background:var(--card);border:1.5px solid var(--border);
-  border-radius:4px;overflow:hidden;transition:.2s;
-}
-.smart-search:focus-within{border-color:var(--gold)}
-.search-icon{display:flex;align-items:center;padding:0 .85rem;color:var(--muted);font-size:.85rem}
-.smart-search input{
-  flex:1;background:none;border:none;
-  padding:.82rem 0;font-family:'DM Sans',sans-serif;
-  font-size:.92rem;color:var(--ink);outline:none;min-width:0;
-}
-.smart-search input::placeholder{color:var(--border)}
-.search-status{display:flex;align-items:center;padding:0 .85rem;gap:.45rem;font-size:.72rem;color:var(--muted)}
-.s-badge{
-  font-size:.58rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  padding:.18rem .45rem;border-radius:2px;background:var(--cream);color:var(--muted);white-space:nowrap;
-}
-.s-badge.online{background:#9FE1CB;color:#04342C}
-.s-badge.searching{background:#FAC775;color:#412402;animation:pulse 1s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-
-.search-drop{
-  position:absolute;top:100%;left:0;right:0;
-  background:var(--card);border:1px solid var(--border);border-top:none;
-  border-radius:0 0 4px 4px;z-index:50;max-height:340px;overflow-y:auto;display:none;
-}
-.search-drop.open{display:block}
-.drop-label{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.55rem .9rem .25rem;border-top:1px solid var(--cream)}
-.drop-label:first-child{border-top:none}
-.drop-item{display:flex;align-items:center;gap:.65rem;padding:.58rem .9rem;cursor:pointer;transition:.12s;border-bottom:1px solid var(--cream)}
-.drop-item:last-child{border-bottom:none}
-.drop-item:hover{background:var(--cream)}
-.drop-name{font-weight:500;font-size:.86rem;color:var(--ink)}
-.drop-meta{font-size:.72rem;color:var(--muted)}
-.drop-pill{margin-left:auto;font-size:.58rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.16rem .4rem;border-radius:2px}
-.drop-ai{background:#E8D5A3;color:#5C3D0A}
-.drop-local{background:#9FE1CB;color:#04342C}
-.spinner{width:15px;height:15px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ── CARDS ── */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
-.recipe-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:4px;cursor:pointer;transition:.2s;overflow:hidden;
-}
-.recipe-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.08)}
-.recipe-card.ai-card{border-left:3px solid var(--gold)}
-.card-header{padding:1rem 1rem .6rem;border-bottom:1px solid var(--cream)}
-.card-type{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-d);margin-bottom:.28rem}
-.card-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:.22rem}
-.card-origin{font-size:.72rem;color:var(--muted);display:flex;align-items:center;gap:.28rem}
-.card-body{padding:.6rem 1rem .85rem}
-.card-glass{font-size:.72rem;color:var(--muted);margin-bottom:.38rem;display:flex;align-items:center;gap:.38rem}
-.card-ing{font-size:.76rem;color:var(--ink);line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-actions{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem;border-top:1px solid var(--cream)}
-.type-badge{font-size:.58rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.18rem .48rem;border-radius:2px}
-.badge-cocktail{background:#E8D5A3;color:#5C3D0A}
-.badge-shot{background:#F5C4B3;color:#4A1B0C}
-.badge-longdrink{background:#9FE1CB;color:#04342C}
-.badge-mocktail{background:#C0DD97;color:#173404}
-.badge-classic{background:#CECBF6;color:#26215C}
-.bookmark-btn{background:none;border:none;cursor:pointer;color:var(--border);font-size:1rem;transition:.2s;padding:.18rem}
-.bookmark-btn.active,.bookmark-btn:hover{color:var(--gold)}
-.ai-tag{font-size:.56rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:#E8D5A3;color:#5C3D0A;padding:.13rem .38rem;border-radius:2px;margin-left:.35rem}
-
-/* ── DETAIL OVERLAY ── */
-.overlay{display:none;position:fixed;inset:0;background:rgba(26,18,9,.78);z-index:200;overflow-y:auto}
-.overlay.open{display:flex;align-items:flex-start;justify-content:center;padding:1.5rem .75rem}
-.panel{background:var(--card);max-width:680px;width:100%;border-radius:4px;border:1px solid var(--border);overflow:hidden}
-.panel-top{background:var(--ink);padding:1.6rem;position:relative}
-.panel-type{font-size:.66rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.38rem}
-.panel-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#fff;line-height:1.1;margin-bottom:.38rem}
-.panel-sub{color:#9A8F7A;font-size:.8rem;display:flex;gap:1.1rem;flex-wrap:wrap}
-.panel-close{position:absolute;top:.85rem;right:.85rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.82rem;display:flex;align-items:center;justify-content:center;transition:.2s}
-.panel-close:hover{background:rgba(255,255,255,.18)}
-.panel-body{padding:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:520px){.panel-body{grid-template-columns:1fr}}
-.detail-h4{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:.6rem;padding-bottom:.3rem;border-bottom:1px solid var(--cream)}
-.ing-item{display:flex;align-items:baseline;gap:.45rem;padding:.25rem 0;border-bottom:1px dashed var(--cream);font-size:.8rem}
-.ing-amount{color:var(--gold-d);font-weight:600;min-width:52px}
-.tech-tag{display:inline-block;background:var(--cream);color:var(--muted);font-size:.64rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:.18rem .48rem;border-radius:2px;margin:.15rem}
-.panel-full{padding:0 1.5rem 1.5rem}
-.panel-full p{font-size:.84rem;color:var(--muted);line-height:1.8}
-
-/* ── SPIRITS ── */
-.spirit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.9rem}
-.spirit-card{background:var(--card);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:.2s;overflow:hidden}
-.spirit-card:hover{border-color:var(--gold);transform:translateY(-2px)}
-.spirit-card .sh{padding:1rem 1rem .6rem}
-.spirit-icon{font-size:2rem;margin-bottom:.35rem}
-.spirit-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink)}
-.spirit-origin{font-size:.7rem;color:var(--muted);margin:.18rem 0}
-.spirit-body{padding:.6rem 1rem;font-size:.77rem;color:var(--muted);line-height:1.7}
-.spirit-tags{display:flex;flex-wrap:wrap;gap:.28rem;padding:.6rem 1rem;border-top:1px solid var(--cream)}
-.spirit-tag{font-size:.62rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.16rem .44rem;border-radius:2px;background:var(--cream);color:var(--muted)}
-.spirit-panel{background:var(--card);max-width:560px;width:100%;border-radius:4px;border:1px solid var(--border);overflow:hidden}
-.spirit-top{background:var(--ink);padding:1.6rem;position:relative;text-align:center}
-.spirit-emoji{font-size:2.8rem;display:block;margin-bottom:.6rem}
-.spirit-detail-name{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:#fff}
-.spirit-detail-sub{color:var(--gold);font-size:.8rem;margin-top:.32rem}
-.spirit-section{padding:1.1rem 1.5rem;border-bottom:1px solid var(--cream)}
-.spirit-section:last-child{border:none}
-.spirit-section h4{font-family:'Cormorant Garamond',serif;font-size:.88rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.45rem}
-.spirit-section p{font-size:.83rem;color:var(--ink);line-height:1.8}
-.taste-chip{font-size:.7rem;font-weight:500;padding:.25rem .65rem;border-radius:20px;border:1px solid var(--border);color:var(--muted);display:inline-block;margin:.16rem}
-
-/* ── PLAYLISTS ── */
-.playlist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.9rem;margin-bottom:1.5rem}
-.pl-card{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;transition:.2s}
-.pl-card:hover{border-color:var(--gold);transform:translateY(-2px)}
-.pl-card-top{padding:1rem;border-bottom:1px solid var(--cream)}
-.pl-card-emoji{font-size:1.75rem;margin-bottom:.35rem}
-.pl-card-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--ink)}
-.pl-card-count{font-size:.72rem;color:var(--muted);margin-top:.15rem}
-.pl-card-preview{padding:.55rem 1rem;font-size:.76rem;color:var(--muted);border-bottom:1px solid var(--cream)}
-.pl-card-actions{padding:.45rem 1rem;display:flex;justify-content:space-between;align-items:center}
-.pl-strip{display:flex;align-items:center;justify-content:space-between;padding:.52rem .65rem;border-bottom:1px solid var(--cream);font-size:.83rem;cursor:pointer}
-.pl-strip:last-child{border-bottom:none}
-.pl-strip:hover{background:var(--cream)}
-.strip-rm{background:none;border:none;color:var(--border);cursor:pointer;font-size:.75rem;transition:.15s}
-.strip-rm:hover{color:var(--accent)}
-
-/* ── PROFILE ── */
-.profile-layout{display:grid;grid-template-columns:1fr;gap:1.25rem}
-@media(min-width:640px){.profile-layout{grid-template-columns:250px 1fr}}
-.profile-card{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden}
-.profile-banner{height:72px;position:relative}
-.profile-avatar{width:64px;height:64px;border-radius:50%;border:3px solid var(--card);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;position:absolute;bottom:-32px;left:1.1rem;cursor:pointer;overflow:hidden}
-.profile-info{padding:2.4rem 1.1rem 1.1rem}
-.profile-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink)}
-.profile-bio{font-size:.77rem;color:var(--muted);margin-top:.28rem;line-height:1.6}
-.profile-stats{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;margin-top:.85rem;border-top:1px solid var(--cream);padding-top:.8rem}
-.stat-box{text-align:center;padding:.4rem}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--gold-d)}
-.stat-l{font-size:.62rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.profile-badges{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.8rem;border-top:1px solid var(--cream);padding-top:.8rem}
-.badge-pill{font-size:.62rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.22rem .56rem;border-radius:20px;border:1px solid var(--border);color:var(--muted)}
-.pref-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:1.1rem;margin-bottom:1rem}
-.pref-card h3{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--cream)}
-.pref-row{display:flex;align-items:center;justify-content:space-between;padding:.42rem 0;border-bottom:1px solid var(--cream)}
-.pref-row:last-child{border:none}
-.pref-label{font-size:.78rem;color:var(--muted)}
-.pref-row select,.pref-row input[type=text]{background:var(--cream);border:1px solid var(--border);border-radius:2px;padding:.26rem .5rem;font-family:'DM Sans',sans-serif;font-size:.77rem;color:var(--ink);outline:none;max-width:165px}
-.toggle{position:relative;width:34px;height:18px;cursor:pointer}
-.toggle input{opacity:0;width:0;height:0}
-.toggle-slider{position:absolute;inset:0;background:var(--border);border-radius:20px;transition:.25s}
-.toggle-slider:before{content:'';position:absolute;width:12px;height:12px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.25s}
-.toggle input:checked+.toggle-slider{background:var(--gold)}
-.toggle input:checked+.toggle-slider:before{transform:translateX(16px)}
-.fav-types{display:flex;flex-wrap:wrap;gap:.3rem}
-.fav-type{font-size:.66rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.26rem .6rem;border-radius:20px;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:.15s}
-.fav-type.active{background:var(--gold);border-color:var(--gold);color:var(--ink)}
-.edit-profile-btn{display:flex;align-items:center;gap:.38rem;background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.32rem .75rem;border-radius:2px;cursor:pointer;transition:.2s;margin-top:.65rem;width:100%;justify-content:center}
-.edit-profile-btn:hover{border-color:var(--gold);color:var(--gold-d)}
-
-/* ── MODALS / FORMS ── */
-.form-overlay{display:none;position:fixed;inset:0;background:rgba(26,18,9,.78);z-index:200;overflow-y:auto}
-.form-overlay.open{display:flex;align-items:flex-start;justify-content:center;padding:1.5rem .75rem}
-.form-panel{background:var(--card);max-width:580px;width:100%;border-radius:4px;border:1px solid var(--border);padding:1.6rem;position:relative}
-.form-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:1.1rem}
-.form-row{margin-bottom:.75rem}
-.form-row label{display:block;font-size:.68rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.28rem}
-.form-row input,.form-row select,.form-row textarea{width:100%;background:#fff;border:1px solid var(--border);border-radius:2px;padding:.55rem .78rem;font-family:'DM Sans',sans-serif;font-size:.86rem;color:var(--ink);outline:none;transition:.2s}
-.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--gold)}
-.form-row textarea{resize:vertical;min-height:65px}
-.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.form-actions{display:flex;gap:.55rem;margin-top:1.1rem;justify-content:flex-end}
-.btn-outline{background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.55rem 1rem;border-radius:2px;cursor:pointer;transition:.2s}
-.btn-outline:hover{border-color:var(--muted);color:var(--ink)}
-.btn-primary{background:var(--gold);border:none;color:var(--ink);font-weight:600;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;padding:.65rem 1.25rem;border-radius:2px;cursor:pointer;transition:.2s}
-.btn-primary:hover{background:var(--gold-d);color:#fff}
-.form-close{position:absolute;top:.85rem;right:.85rem;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem}
-
-/* Playlist picker */
-.pl-modal-wrap{display:none;position:fixed;inset:0;background:rgba(26,18,9,.78);z-index:300;align-items:center;justify-content:center}
-.pl-modal-wrap.open{display:flex}
-.pl-modal{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:1.25rem;min-width:290px;max-width:350px}
-.pl-modal-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-bottom:.8rem}
-.pl-option{display:flex;align-items:center;gap:.55rem;padding:.45rem .38rem;border-radius:2px;cursor:pointer;transition:.12s;font-size:.84rem}
-.pl-option:hover{background:var(--cream)}
-.pl-new{border-top:1px solid var(--border);margin-top:.6rem;padding-top:.6rem}
-.pl-new input{width:100%;border:1px solid var(--border);border-radius:2px;padding:.48rem .65rem;font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none}
-.pl-new input:focus{border-color:var(--gold)}
-
-/* AI banner */
-.ai-banner{background:linear-gradient(90deg,#1A1209,#2a1e0f);border:1px solid var(--gold-d);border-radius:4px;padding:.9rem 1.1rem;margin-bottom:1.35rem;display:none;align-items:center;gap:.85rem}
-.ai-banner.show{display:flex}
-.ai-banner-text{font-size:.83rem;color:var(--gold-l);flex:1}
-.ai-banner-text strong{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:.95rem}
-
-/* PWA install prompt */
-.install-bar{
-  background:var(--ink);border-bottom:1px solid var(--gold-d);
-  padding:.65rem 1.1rem;display:none;
-  align-items:center;gap:.85rem;
-  font-size:.8rem;color:var(--gold-l);
-}
-.install-bar.show{display:flex}
-.install-bar strong{color:var(--gold)}
-.install-bar .ib-btn{
-  margin-left:auto;background:var(--gold);border:none;
-  color:var(--ink);font-weight:600;font-size:.7rem;
-  letter-spacing:.07em;text-transform:uppercase;
-  padding:.35rem .8rem;border-radius:2px;cursor:pointer;flex-shrink:0;
-}
-.install-bar .ib-dismiss{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.8rem;margin-left:.35rem}
-
-/* Toast */
-.save-toast{position:fixed;bottom:calc(80px + var(--safe-bottom));right:1.25rem;background:var(--ink);color:var(--gold-l);font-size:.78rem;padding:.55rem 1.1rem;border-radius:4px;border:1px solid var(--gold-d);opacity:0;transition:.3s;z-index:999;pointer-events:none}
-.save-toast.show{opacity:1}
-
-.empty{text-align:center;padding:2.5rem 1.5rem;color:var(--muted)}
-.empty i{font-size:1.75rem;margin-bottom:.65rem;opacity:.3;display:block}
-.empty p{font-size:.84rem}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171109">
+  <meta name="description" content="Bar Atlas: ricette cocktail, preferiti, liste e dispensa personale.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bar Atlas">
+  <title>Bar Atlas</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" type="module"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
 
-<!-- PWA Install Bar -->
-<div class="install-bar" id="install-bar">
-  <span>🍸 <strong data-t="install_title">Aggiungi alla schermata Home</strong> — <span data-t="install_sub">usa Bar Atlas come app</span></span>
-  <button class="ib-btn" id="install-btn" data-t="install_btn">Installa</button>
-  <button class="ib-dismiss" onclick="document.getElementById('install-bar').classList.remove('show')" title="Chiudi"><i class="fas fa-times"></i></button>
-</div>
-
-<!-- Top Bar -->
-<nav class="topbar">
-  <span class="logo" onclick="goSec('recipes')">
-    <span class="logo-dot"></span> Bar Atlas
-  </span>
-  <div class="topbar-right">
-    <span class="online-dot" id="online-dot" title="Online"></span>
-    <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
-    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-  </div>
-</nav>
-
-<!-- Sections -->
-<div class="section active" id="sec-recipes">
-  <div class="sec-header">
-    <div class="sec-title" data-t="nav_recipes">Ricette</div>
-    <div class="sec-sub" id="recipe-count-label"></div>
-  </div>
-  <hr class="divider">
-
-  <div class="ai-banner" id="ai-banner">
-    <i class="fas fa-wand-magic-sparkles" style="color:var(--gold);font-size:1.1rem"></i>
-    <div class="ai-banner-text"><strong data-t="ai_found">Ricetta trovata dall'AI</strong> — <span id="ai-banner-name"></span></div>
-  </div>
-
-  <div class="smart-search-wrap">
-    <div class="smart-search">
-      <div class="search-icon"><i class="fas fa-magnifying-glass"></i></div>
-      <input type="text" id="search-input" data-ph="it" autocomplete="off" spellcheck="false">
-      <div class="search-status"><span class="s-badge online" id="search-badge">AI</span></div>
+  <header class="topbar">
+    <button class="brand" id="brand-home" type="button" aria-label="Vai alle ricette">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <span>Bar Atlas</span>
+    </button>
+    <div class="top-actions">
+      <span id="connection-status" class="connection" aria-live="polite">
+        <span class="connection-dot" aria-hidden="true"></span>
+        <span id="connection-label">Online</span>
+      </span>
+      <button class="icon-btn" id="theme-quick" type="button" aria-label="Attiva tema scuro" title="Tema">
+        <span aria-hidden="true">◐</span>
+      </button>
+      <button class="lang-button" id="language-quick" type="button" aria-label="Cambia lingua">IT</button>
     </div>
-    <div class="search-drop" id="search-drop"></div>
-  </div>
+  </header>
 
-  <div class="grid" id="recipe-grid"></div>
-</div>
+  <main id="main">
+    <section class="view active" id="view-recipes" data-view="recipes" aria-labelledby="recipes-title">
+      <div class="hero">
+        <p class="eyebrow" data-i18n="hero_eyebrow">Atlante personale di mixology</p>
+        <h1 id="recipes-title" data-i18n="hero_title">Trova il drink giusto.</h1>
+        <p class="hero-copy" data-i18n="hero_copy">Cerca tra classici, tiki, aperitivi, shot e analcolici. Tutto resta sul tuo dispositivo.</p>
+      </div>
 
-<div class="section" id="sec-spirits">
-  <div class="sec-header">
-    <div class="sec-title" data-t="nav_spirits">Distillati</div>
-  </div>
-  <hr class="divider">
-  <div class="spirit-grid" id="spirit-grid"></div>
-</div>
+      <div class="search-panel">
+        <label class="search-box" for="search-input">
+          <span class="search-symbol" aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" autocomplete="off" data-i18n-placeholder="search_placeholder" placeholder="Cerca ricetta, ingrediente o gusto…">
+          <button class="clear-search" id="clear-search" type="button" aria-label="Cancella ricerca">×</button>
+        </label>
+        <div class="filter-grid">
+          <label>
+            <span data-i18n="filter_type">Tipo</span>
+            <select id="filter-type">
+              <option value="" data-i18n="filter_all">Tutti</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filter_technique">Tecnica</span>
+            <select id="filter-technique">
+              <option value="" data-i18n="filter_all">Tutte</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filter_sort">Ordina</span>
+            <select id="sort-recipes">
+              <option value="name" data-i18n="sort_name">Nome</option>
+              <option value="abv-asc" data-i18n="sort_abv_asc">Gradazione crescente</option>
+              <option value="abv-desc" data-i18n="sort_abv_desc">Gradazione decrescente</option>
+            </select>
+          </label>
+        </div>
+        <div class="quick-filters" id="quick-filters" aria-label="Filtri rapidi">
+          <button class="chip active" type="button" data-quick="all" data-i18n="quick_all">Tutte</button>
+          <button class="chip" type="button" data-quick="saved" data-i18n="quick_saved">Salvate</button>
+          <button class="chip" type="button" data-quick="makeable" data-i18n="quick_makeable">Preparabili</button>
+          <button class="chip" type="button" data-quick="mocktail" data-i18n="quick_mocktail">Analcoliche</button>
+        </div>
+      </div>
 
-<div class="section" id="sec-playlists">
-  <div class="sec-header">
-    <div class="sec-title" data-t="nav_playlists">Le Mie Liste</div>
-    <div class="sec-sub" id="pl-count-label"></div>
-  </div>
-  <hr class="divider">
-  <div style="margin-bottom:1rem">
-    <button class="btn-primary" onclick="openNewPL()" data-t="new_list"><i class="fas fa-plus" style="margin-right:.4rem"></i>Nuova Lista</button>
-  </div>
-  <div class="playlist-grid" id="pl-grid"></div>
-  <div id="pl-detail" style="display:none">
-    <div style="display:flex;align-items:center;gap:.85rem;margin-bottom:1rem">
-      <button class="btn-outline" onclick="closePLDetail()"><i class="fas fa-arrow-left" style="margin-right:.35rem"></i><span data-t="back">Indietro</span></button>
-      <span class="sec-title" id="pl-detail-title" style="font-size:1.35rem"></span>
-    </div>
-    <div id="pl-detail-list" style="background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden"></div>
-  </div>
-</div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="catalogue">Catalogo</p>
+          <h2 data-i18n="recipes">Ricette</h2>
+        </div>
+        <div class="heading-actions">
+          <span class="count-label" id="recipe-count" aria-live="polite">0 ricette</span>
+          <button class="secondary-btn" id="open-add-recipe" type="button"><span aria-hidden="true">＋</span> <span data-i18n="add_recipe">Aggiungi</span></button>
+        </div>
+      </div>
+      <div class="recipe-grid" id="recipe-grid" aria-live="polite"></div>
+      <button class="load-more hidden" id="load-more" type="button" data-i18n="load_more">Mostra altre</button>
+    </section>
 
-<div class="section" id="sec-profile">
-  <div class="sec-header">
-    <div class="sec-title" data-t="nav_profile">Profilo</div>
-  </div>
-  <hr class="divider">
-  <div class="profile-layout">
-    <div>
-      <div class="profile-card">
-        <div class="profile-banner" id="profile-banner" style="background:linear-gradient(135deg,#1A1209,#4a2e0a)"></div>
-        <div class="profile-avatar" id="profile-avatar" style="background:var(--gold-d);color:var(--gold-l)">🍸</div>
-        <div class="profile-info">
-          <div class="profile-name" id="profile-name-display">Barman</div>
-          <div class="profile-bio" data-t="profile_bio">Appassionato di mixology</div>
-          <div class="profile-stats">
-            <div class="stat-box"><div class="stat-n" id="stat-saved">0</div><div class="stat-l" data-t="stat_saved">Salvate</div></div>
-            <div class="stat-box"><div class="stat-n" id="stat-lists">0</div><div class="stat-l" data-t="stat_lists">Liste</div></div>
+    <section class="view" id="view-spirits" data-view="spirits" aria-labelledby="spirits-title" hidden>
+      <div class="page-header">
+        <p class="eyebrow" data-i18n="learn">Conoscere per miscelare</p>
+        <h1 id="spirits-title" data-i18n="spirits">Distillati</h1>
+        <p data-i18n="spirits_intro">Una guida rapida alle principali basi da bar e ai loro profili aromatici.</p>
+      </div>
+      <div class="spirit-grid" id="spirit-grid"></div>
+    </section>
+
+    <section class="view" id="view-lists" data-view="lists" aria-labelledby="lists-title" hidden>
+      <div class="page-header split-header">
+        <div>
+          <p class="eyebrow" data-i18n="organize">Organizza</p>
+          <h1 id="lists-title" data-i18n="lists">Le mie liste</h1>
+          <p data-i18n="lists_intro">Raccogli ricette per serate, occasioni o ingredienti.</p>
+        </div>
+        <button class="primary-btn" id="new-list-button" type="button"><span aria-hidden="true">＋</span> <span data-i18n="new_list">Nuova lista</span></button>
+      </div>
+      <div id="lists-overview">
+        <div class="playlist-grid" id="playlist-grid"></div>
+      </div>
+      <div id="list-detail" hidden>
+        <button class="text-button" id="list-back" type="button">← <span data-i18n="back">Indietro</span></button>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="list_detail">Dettaglio lista</p>
+            <h2 id="list-detail-title"></h2>
           </div>
-          <div class="profile-badges">
-            <span class="badge-pill">🍸 Mixologist</span>
-            <span class="badge-pill">🌍 Explorer</span>
-            <span class="badge-pill">⭐ Collector</span>
+          <button class="danger-btn" id="delete-list" type="button" data-i18n="delete_list">Elimina lista</button>
+        </div>
+        <div class="recipe-grid" id="list-detail-grid"></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-profile" data-view="profile" aria-labelledby="profile-title" hidden>
+      <div class="profile-banner" id="profile-banner">
+        <div class="avatar" aria-hidden="true">BA</div>
+        <div>
+          <p class="eyebrow light" data-i18n="my_bar">Il mio bar</p>
+          <h1 id="profile-title"><span id="profile-name">Barman</span></h1>
+          <p id="profile-bio" data-i18n="default_bio">Appassionato di mixology</p>
+        </div>
+        <button class="ghost-btn" id="edit-profile" type="button" data-i18n="edit">Modifica</button>
+      </div>
+
+      <div class="stats-grid">
+        <article><strong id="stat-recipes">0</strong><span data-i18n="recipes">Ricette</span></article>
+        <article><strong id="stat-saved">0</strong><span data-i18n="saved">Salvate</span></article>
+        <article><strong id="stat-lists">0</strong><span data-i18n="lists">Liste</span></article>
+        <article><strong id="stat-makeable">0</strong><span data-i18n="makeable">Preparabili</span></article>
+      </div>
+
+      <div class="settings-grid">
+        <article class="panel-card pantry-card">
+          <div class="card-title-row">
+            <div>
+              <p class="eyebrow" data-i18n="pantry">Dispensa</p>
+              <h2 data-i18n="what_have">Cosa hai a casa?</h2>
+            </div>
+            <button class="text-button" id="clear-pantry" type="button" data-i18n="clear">Svuota</button>
           </div>
-          <button class="edit-profile-btn" onclick="openEditProfile()"><i class="fas fa-pen" style="font-size:.75rem"></i> <span data-t="edit_profile">Modifica Profilo</span></button>
-        </div>
+          <p class="muted" data-i18n="pantry_help">Scrivi gli ingredienti separati da virgole. Il filtro “Preparabili” userà questa lista.</p>
+          <label class="field">
+            <span data-i18n="ingredients">Ingredienti</span>
+            <textarea id="pantry-input" rows="4" data-i18n-placeholder="pantry_placeholder" placeholder="gin, lime, soda, Campari…"></textarea>
+          </label>
+          <button class="primary-btn full" id="save-pantry" type="button" data-i18n="save_pantry">Salva dispensa</button>
+          <div class="pantry-tags" id="pantry-tags"></div>
+        </article>
+
+        <article class="panel-card">
+          <p class="eyebrow" data-i18n="preferences">Preferenze</p>
+          <h2 data-i18n="app_settings">Impostazioni app</h2>
+          <div class="setting-row">
+            <label for="setting-language" data-i18n="language">Lingua</label>
+            <select id="setting-language">
+              <option value="it">Italiano</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+          <div class="setting-row">
+            <label for="setting-units" data-i18n="units">Unità</label>
+            <select id="setting-units">
+              <option value="ml">ml</option>
+              <option value="cl">cl</option>
+              <option value="oz">oz</option>
+            </select>
+          </div>
+          <div class="setting-row">
+            <span data-i18n="dark_mode">Tema scuro</span>
+            <label class="switch">
+              <input id="setting-theme" type="checkbox">
+              <span aria-hidden="true"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <span data-i18n="install_app">Installa app</span>
+            <button class="secondary-btn" id="install-app" type="button" data-i18n="install">Installa</button>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <p class="eyebrow" data-i18n="data">Dati</p>
+          <h2 data-i18n="backup">Backup e ripristino</h2>
+          <p class="muted" data-i18n="backup_help">Esporta preferiti, liste, profilo, dispensa e ricette personali.</p>
+          <div class="button-stack">
+            <button class="secondary-btn full" id="export-data" type="button" data-i18n="export">Esporta dati</button>
+            <label class="secondary-btn full file-button">
+              <span data-i18n="import">Importa dati</span>
+              <input id="import-data" type="file" accept="application/json">
+            </label>
+          </div>
+        </article>
+
+        <article class="panel-card note-card">
+          <p class="eyebrow" data-i18n="about">Informazioni</p>
+          <h2>Bar Atlas</h2>
+          <p class="muted" data-i18n="about_text">Le dosi sono indicazioni standard: ricette e gradazioni possono variare in base ai prodotti usati. Bevi responsabilmente.</p>
+          <p class="version">v1.0.0 · <span id="data-version">160</span> ricette</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navigazione principale">
+    <button class="nav-item active" type="button" data-target="recipes" aria-current="page"><span aria-hidden="true">⌕</span><span data-i18n="recipes">Ricette</span></button>
+    <button class="nav-item" type="button" data-target="spirits"><span aria-hidden="true">◒</span><span data-i18n="spirits">Distillati</span></button>
+    <button class="nav-item" type="button" data-target="lists"><span aria-hidden="true">☷</span><span data-i18n="lists">Liste</span></button>
+    <button class="nav-item" type="button" data-target="profile"><span aria-hidden="true">◎</span><span data-i18n="profile">Profilo</span></button>
+  </nav>
+
+  <dialog class="modal recipe-modal" id="recipe-dialog" aria-labelledby="detail-name">
+    <button class="modal-close" type="button" data-close="recipe-dialog" aria-label="Chiudi">×</button>
+    <div class="modal-hero">
+      <p class="eyebrow light" id="detail-type"></p>
+      <h2 id="detail-name"></h2>
+      <div class="detail-meta" id="detail-meta"></div>
+    </div>
+    <div class="modal-body">
+      <div class="detail-column">
+        <h3 data-i18n="ingredients">Ingredienti</h3>
+        <div id="detail-ingredients" class="ingredient-list"></div>
+      </div>
+      <div class="detail-column">
+        <h3 data-i18n="preparation">Preparazione</h3>
+        <p id="detail-technique"></p>
+        <h3 data-i18n="garnish">Guarnizione</h3>
+        <p id="detail-garnish"></p>
+        <h3 data-i18n="notes">Note</h3>
+        <p id="detail-notes"></p>
       </div>
     </div>
-    <div>
-      <div class="pref-card">
-        <h3 data-t="pref_title">Preferenze</h3>
-        <div class="pref-row"><span class="pref-label" data-t="pref_lang">Lingua</span>
-          <select onchange="setLang(this.value)" id="pref-lang-select">
-            <option value="it">Italiano</option><option value="en">English</option>
-          </select>
-        </div>
-        <div class="pref-row"><span class="pref-label" data-t="pref_units">Unità di misura</span>
-          <select id="pref-units"><option value="ml">ml</option><option value="oz">oz</option><option value="cl">cl</option></select>
-        </div>
-        <div class="pref-row"><span class="pref-label" data-t="pref_darkmode">Tema scuro</span>
-          <label class="toggle"><input type="checkbox" id="toggle-dark" onchange="toggleDark(this)"><span class="toggle-slider"></span></label>
-        </div>
-        <div class="pref-row"><span class="pref-label" data-t="pref_ai">Ricerca AI</span>
-          <label class="toggle"><input type="checkbox" id="toggle-ai" checked><span class="toggle-slider"></span></label>
-        </div>
-      </div>
-      <div class="pref-card">
-        <h3 data-t="fav_types">Tipi Preferiti</h3>
-        <div class="fav-types" id="fav-types"></div>
-      </div>
+    <div class="modal-actions">
+      <button class="secondary-btn" id="detail-save" type="button"></button>
+      <button class="secondary-btn" id="detail-list" type="button" data-i18n="add_to_list">Aggiungi a lista</button>
+      <button class="primary-btn" id="detail-share" type="button" data-i18n="share">Condividi</button>
+      <button class="danger-btn hidden" id="detail-delete-custom" type="button" data-i18n="delete">Elimina</button>
     </div>
-  </div>
-</div>
+  </dialog>
 
-<!-- Bottom Nav -->
-<nav class="bottom-nav">
-  <button class="bnav-item active" data-sec="recipes" onclick="goSec('recipes',this)">
-    <i class="fas fa-martini-glass-citrus"></i>
-    <span data-t="nav_recipes">Ricette</span>
-  </button>
-  <button class="bnav-item" data-sec="spirits" onclick="goSec('spirits',this)">
-    <i class="fas fa-bottle-droplet"></i>
-    <span data-t="nav_spirits">Distillati</span>
-  </button>
-  <button class="bnav-item" data-sec="playlists" onclick="goSec('playlists',this)">
-    <i class="fas fa-list-ul"></i>
-    <span data-t="nav_playlists">Liste</span>
-  </button>
-  <button class="bnav-item" data-sec="profile" onclick="goSec('profile',this)">
-    <i class="fas fa-user"></i>
-    <span data-t="nav_profile">Profilo</span>
-  </button>
-</nav>
-
-<!-- Toast -->
-<div class="save-toast" id="toast"></div>
-
-<!-- Recipe Detail Overlay -->
-<div class="overlay" id="recipe-overlay">
-  <div class="panel">
-    <div class="panel-top">
-      <button class="panel-close" onclick="closeOverlay('recipe-overlay')"><i class="fas fa-times"></i></button>
-      <div class="panel-type" id="d-type"></div>
-      <div class="panel-name" id="d-name"></div>
-      <div class="panel-sub">
-        <span id="d-origin"></span>
-        <span id="d-glass"></span>
-        <span id="d-abv"></span>
-      </div>
+  <dialog class="modal" id="spirit-dialog" aria-labelledby="spirit-detail-name">
+    <button class="modal-close" type="button" data-close="spirit-dialog" aria-label="Chiudi">×</button>
+    <div class="modal-hero centered">
+      <span class="spirit-large-icon" id="spirit-detail-icon" aria-hidden="true"></span>
+      <h2 id="spirit-detail-name"></h2>
+      <p id="spirit-detail-origin"></p>
     </div>
-    <div class="panel-body">
-      <div>
-        <div class="detail-h4" data-t="d_ingredients">Ingredienti</div>
-        <div id="d-ingredients"></div>
-      </div>
-      <div>
-        <div class="detail-h4" data-t="d_technique">Tecnica</div>
-        <div id="d-technique"></div>
-        <div class="detail-h4" style="margin-top:1rem" data-t="d_garnish">Guarnizione</div>
-        <div id="d-garnish" style="font-size:.83rem;color:var(--muted)"></div>
-      </div>
+    <div class="modal-body single-column">
+      <section><h3 data-i18n="history">Storia</h3><p id="spirit-detail-history"></p></section>
+      <section><h3 data-i18n="aroma">Profilo aromatico</h3><div class="tag-list" id="spirit-detail-taste"></div></section>
+      <section><h3 data-i18n="classic_cocktails">Cocktail classici</h3><p id="spirit-detail-cocktails"></p></section>
     </div>
-    <div class="panel-full">
-      <div class="detail-h4" data-t="d_notes">Note</div>
-      <p id="d-notes" style="font-size:.83rem;color:var(--muted);line-height:1.8"></p>
+  </dialog>
+
+  <dialog class="modal form-modal" id="add-recipe-dialog" aria-labelledby="add-recipe-title">
+    <button class="modal-close" type="button" data-close="add-recipe-dialog" aria-label="Chiudi">×</button>
+    <div class="modal-heading">
+      <p class="eyebrow" data-i18n="personal_recipe">Ricetta personale</p>
+      <h2 id="add-recipe-title" data-i18n="add_recipe">Aggiungi ricetta</h2>
     </div>
-  </div>
-</div>
-
-<!-- Spirit Detail Overlay -->
-<div class="overlay" id="spirit-overlay">
-  <div class="spirit-panel">
-    <div class="spirit-top">
-      <button class="panel-close" onclick="closeOverlay('spirit-overlay')"><i class="fas fa-times"></i></button>
-      <span class="spirit-emoji" id="s-emoji"></span>
-      <div class="spirit-detail-name" id="s-name"></div>
-      <div class="spirit-detail-sub" id="s-origin"></div>
-    </div>
-    <div class="spirit-section"><h4 data-t="s_history">Storia</h4><p id="s-history"></p></div>
-    <div class="spirit-section"><h4 data-t="s_taste">Profilo Aromatico</h4><div id="s-taste"></div></div>
-    <div class="spirit-section"><h4 data-t="s_cocktails">Cocktail Classici</h4><p id="s-cocktails" style="font-size:.83rem;color:var(--muted)"></p></div>
-    <div class="spirit-section"><h4 data-t="s_abv">Gradazione</h4><p id="s-abv2" style="font-size:.83rem;color:var(--muted)"></p></div>
-  </div>
-</div>
-
-<!-- Add Recipe Form -->
-<div class="form-overlay" id="add-recipe-overlay">
-  <div class="form-panel">
-    <button class="form-close" onclick="closeForm('add-recipe-overlay')"><i class="fas fa-times"></i></button>
-    <div class="form-title" data-t="add_recipe">Aggiungi Ricetta</div>
-    <div class="form-row"><label data-t="f_name">Nome</label><input type="text" id="f-name" data-t-ph="f_name_ph"></div>
-    <div class="form-2col">
-      <div class="form-row"><label data-t="f_type">Tipo</label>
-        <select id="f-type">
-          <option value="cocktail" data-t="type_cocktail">Cocktail</option>
-          <option value="shot">Shot</option>
-          <option value="longdrink">Long Drink</option>
-          <option value="mocktail">Mocktail</option>
-          <option value="classic" data-t="type_classic">Classico</option>
-        </select>
+    <form id="add-recipe-form">
+      <div class="form-grid">
+        <label class="field full-span"><span data-i18n="name">Nome</span><input name="name" required maxlength="80"></label>
+        <label class="field"><span data-i18n="type">Tipo</span><select name="type" id="custom-type"></select></label>
+        <label class="field"><span data-i18n="glass">Bicchiere</span><input name="glass" required maxlength="60"></label>
+        <label class="field"><span data-i18n="origin">Origine</span><input name="origin" maxlength="60" value="international"></label>
+        <label class="field"><span data-i18n="abv">Gradazione %</span><input name="abv" type="number" min="0" max="80" step="0.1" value="0"></label>
+        <label class="field"><span data-i18n="technique">Tecnica</span><select name="technique" id="custom-technique"></select></label>
+        <label class="field"><span data-i18n="garnish">Guarnizione</span><input name="garnish" maxlength="80"></label>
+        <label class="field full-span"><span data-i18n="ingredients_lines">Ingredienti, uno per riga</span><textarea name="ingredients" rows="6" required placeholder="50 ml Gin&#10;25 ml Succo di limone&#10;15 ml Sciroppo semplice"></textarea></label>
+        <label class="field full-span"><span data-i18n="notes">Note</span><textarea name="notes" rows="3" maxlength="500"></textarea></label>
       </div>
-      <div class="form-row"><label data-t="f_glass">Bicchiere</label><input type="text" id="f-glass"></div>
-    </div>
-    <div class="form-row"><label data-t="f_origin">Origine</label><input type="text" id="f-origin"></div>
-    <div class="form-row"><label data-t="f_ingredients">Ingredienti (uno per riga, es. 50ml Gin)</label><textarea id="f-ingredients" rows="4"></textarea></div>
-    <div class="form-2col">
-      <div class="form-row"><label data-t="f_technique">Tecnica</label>
-        <select id="f-technique">
-          <option value="shaken" data-t="tech_shaken">Shakerato</option>
-          <option value="stirred" data-t="tech_stirred">Mescolato</option>
-          <option value="built" data-t="tech_built">Diretto</option>
-          <option value="blended" data-t="tech_blended">Frullato</option>
-        </select>
+      <div class="modal-actions end">
+        <button class="secondary-btn" type="button" data-close="add-recipe-dialog" data-i18n="cancel">Annulla</button>
+        <button class="primary-btn" type="submit" data-i18n="save_recipe">Salva ricetta</button>
       </div>
-      <div class="form-row"><label data-t="f_abv">Gradazione %</label><input type="number" id="f-abv" min="0" max="100" step="0.1"></div>
-    </div>
-    <div class="form-row"><label data-t="f_garnish">Guarnizione</label><input type="text" id="f-garnish"></div>
-    <div class="form-row"><label data-t="f_notes">Note</label><textarea id="f-notes"></textarea></div>
-    <div class="form-actions">
-      <button class="btn-outline" onclick="closeForm('add-recipe-overlay')" data-t="cancel">Annulla</button>
-      <button class="btn-primary" onclick="saveNewRecipe()" data-t="save">Salva Ricetta</button>
-    </div>
-  </div>
-</div>
+    </form>
+  </dialog>
 
-<!-- Edit Profile Form -->
-<div class="form-overlay" id="edit-profile-overlay">
-  <div class="form-panel">
-    <button class="form-close" onclick="closeForm('edit-profile-overlay')"><i class="fas fa-times"></i></button>
-    <div class="form-title" data-t="edit_profile">Modifica Profilo</div>
-    <div class="form-row"><label data-t="f_name">Nome</label><input type="text" id="ep-name"></div>
-    <div class="form-row"><label data-t="ep_bio">Bio</label><textarea id="ep-bio" rows="2"></textarea></div>
-    <div class="form-row"><label data-t="ep_color">Colore banner</label><input type="color" id="ep-color" value="#4a2e0a" style="width:50px;height:35px;border-radius:2px;border:1px solid var(--border);cursor:pointer;padding:2px"></div>
-    <div class="form-actions">
-      <button class="btn-outline" onclick="closeForm('edit-profile-overlay')" data-t="cancel">Annulla</button>
-      <button class="btn-primary" onclick="saveProfile()" data-t="save_profile">Salva</button>
-    </div>
-  </div>
-</div>
+  <dialog class="modal form-modal small-modal" id="profile-dialog" aria-labelledby="profile-dialog-title">
+    <button class="modal-close" type="button" data-close="profile-dialog" aria-label="Chiudi">×</button>
+    <div class="modal-heading"><p class="eyebrow" data-i18n="profile">Profilo</p><h2 id="profile-dialog-title" data-i18n="edit_profile">Modifica profilo</h2></div>
+    <form id="profile-form">
+      <label class="field"><span data-i18n="name">Nome</span><input name="name" maxlength="50" required></label>
+      <label class="field"><span data-i18n="bio">Bio</span><textarea name="bio" rows="3" maxlength="160"></textarea></label>
+      <label class="field"><span data-i18n="banner_color">Colore banner</span><input name="color" type="color" value="#5b3512"></label>
+      <div class="modal-actions end"><button class="secondary-btn" type="button" data-close="profile-dialog" data-i18n="cancel">Annulla</button><button class="primary-btn" type="submit" data-i18n="save">Salva</button></div>
+    </form>
+  </dialog>
 
-<!-- Playlist Picker Modal -->
-<div class="pl-modal-wrap" id="pl-modal">
-  <div class="pl-modal">
-    <div class="pl-modal-title" data-t="add_to_list">Aggiungi alla lista</div>
-    <div id="pl-modal-options"></div>
-    <div class="pl-new">
-      <input type="text" id="pl-new-name" data-t-ph="new_list_name">
-      <button class="btn-primary" style="margin-top:.5rem;width:100%" onclick="createPLfromModal()" data-t="create_list">Crea Lista</button>
-    </div>
-    <button class="btn-outline" style="margin-top:.65rem;width:100%" onclick="closePLModal()" data-t="cancel">Annulla</button>
-  </div>
-</div>
+  <dialog class="modal form-modal small-modal" id="list-dialog" aria-labelledby="list-dialog-title">
+    <button class="modal-close" type="button" data-close="list-dialog" aria-label="Chiudi">×</button>
+    <div class="modal-heading"><p class="eyebrow" data-i18n="organize">Organizza</p><h2 id="list-dialog-title" data-i18n="new_list">Nuova lista</h2></div>
+    <form id="list-form">
+      <label class="field"><span data-i18n="list_name">Nome lista</span><input name="name" required maxlength="60"></label>
+      <label class="field"><span data-i18n="emoji">Emoji</span><input name="emoji" maxlength="4" value="🍸"></label>
+      <div class="modal-actions end"><button class="secondary-btn" type="button" data-close="list-dialog" data-i18n="cancel">Annulla</button><button class="primary-btn" type="submit" data-i18n="create">Crea</button></div>
+    </form>
+  </dialog>
 
-<script>
-/* ══════════════════════════════════════════════
-   TRANSLATIONS
-══════════════════════════════════════════════ */
-const T = {
-  it:{
-    nav_recipes:'Ricette', nav_spirits:'Distillati', nav_playlists:'Liste', nav_profile:'Profilo',
-    search_ph:'Cerca ricetta o ingrediente…',
-    f_name_ph:'es. Negroni Sbagliato',
-    add_recipe:'Aggiungi Ricetta', cancel:'Annulla', save:'Salva Ricetta',
-    f_name:'Nome', f_type:'Tipo', f_glass:'Bicchiere', f_origin:'Origine',
-    f_ingredients:'Ingredienti (uno per riga, es. 50ml Gin)',
-    f_technique:'Tecnica', f_abv:'Gradazione %', f_garnish:'Guarnizione', f_notes:'Note',
-    type_cocktail:'Cocktail', type_classic:'Classico',
-    tech_shaken:'Shakerato', tech_stirred:'Mescolato', tech_built:'Diretto', tech_blended:'Frullato',
-    edit_profile:'Modifica Profilo', save_profile:'Salva',
-    ep_bio:'Bio', ep_color:'Colore banner',
-    profile_bio:'Appassionato di mixology',
-    pref_title:'Preferenze', pref_lang:'Lingua', pref_units:'Unità di misura',
-    pref_darkmode:'Tema scuro', pref_ai:'Ricerca AI',
-    fav_types:'Tipi Preferiti',
-    stat_saved:'Salvate', stat_lists:'Liste',
-    d_ingredients:'Ingredienti', d_technique:'Tecnica', d_garnish:'Guarnizione', d_notes:'Note',
-    s_history:'Storia', s_taste:'Profilo Aromatico', s_cocktails:'Cocktail Classici', s_abv:'Gradazione',
-    ai_found:'Ricetta trovata dall\'AI',
-    add_to_list:'Aggiungi alla lista', new_list_name:'Nome nuova lista…', create_list:'Crea Lista',
-    new_list:'Nuova Lista', back:'Indietro',
-    install_title:'Aggiungi alla schermata Home', install_sub:'usa Bar Atlas come app', install_btn:'Installa',
-    toast_saved:'Ricetta salvata ✓', toast_removed:'Rimossa dalla lista', toast_added:'Aggiunta alla lista ✓',
-    recipes_count:'ricette', lists_count:'liste',
-    empty_recipes:'Nessuna ricetta trovata', empty_list:'Lista vuota',
-    origins:{italy:'Italia',uk:'Regno Unito',usa:'USA',cuba:'Cuba',france:'Francia',spain:'Spagna',germany:'Germania',mexico:'Messico',brazil:'Brasile',world:'Internazionale'},
-    techniques:{shaken:'Shakerato',stirred:'Mescolato',built:'Diretto',blended:'Frullato'},
-  },
-  en:{
-    nav_recipes:'Recipes', nav_spirits:'Spirits', nav_playlists:'My Lists', nav_profile:'Profile',
-    search_ph:'Search recipe or ingredient…',
-    f_name_ph:'e.g. Negroni Sbagliato',
-    add_recipe:'Add Recipe', cancel:'Cancel', save:'Save Recipe',
-    f_name:'Name', f_type:'Type', f_glass:'Glass', f_origin:'Origin',
-    f_ingredients:'Ingredients (one per line, e.g. 50ml Gin)',
-    f_technique:'Technique', f_abv:'ABV %', f_garnish:'Garnish', f_notes:'Notes',
-    type_cocktail:'Cocktail', type_classic:'Classic',
-    tech_shaken:'Shaken', tech_stirred:'Stirred', tech_built:'Built', tech_blended:'Blended',
-    edit_profile:'Edit Profile', save_profile:'Save',
-    ep_bio:'Bio', ep_color:'Banner color',
-    profile_bio:'Mixology enthusiast',
-    pref_title:'Preferences', pref_lang:'Language', pref_units:'Units',
-    pref_darkmode:'Dark mode', pref_ai:'AI Search',
-    fav_types:'Favourite Types',
-    stat_saved:'Saved', stat_lists:'Lists',
-    d_ingredients:'Ingredients', d_technique:'Technique', d_garnish:'Garnish', d_notes:'Notes',
-    s_history:'History', s_taste:'Tasting Profile', s_cocktails:'Classic Cocktails', s_abv:'ABV',
-    ai_found:'Recipe found by AI',
-    add_to_list:'Add to list', new_list_name:'New list name…', create_list:'Create List',
-    new_list:'New List', back:'Back',
-    install_title:'Add to Home Screen', install_sub:'use Bar Atlas as an app', install_btn:'Install',
-    toast_saved:'Recipe saved ✓', toast_removed:'Removed from list', toast_added:'Added to list ✓',
-    recipes_count:'recipes', lists_count:'lists',
-    empty_recipes:'No recipes found', empty_list:'Empty list',
-    origins:{italy:'Italy',uk:'United Kingdom',usa:'USA',cuba:'Cuba',france:'France',spain:'Spain',germany:'Germany',mexico:'Mexico',brazil:'Brazil',world:'International'},
-    techniques:{shaken:'Shaken',stirred:'Stirred',built:'Built',blended:'Blended'},
-  }
-};
+  <dialog class="modal form-modal small-modal" id="list-picker-dialog" aria-labelledby="list-picker-title">
+    <button class="modal-close" type="button" data-close="list-picker-dialog" aria-label="Chiudi">×</button>
+    <div class="modal-heading"><p class="eyebrow" data-i18n="organize">Organizza</p><h2 id="list-picker-title" data-i18n="add_to_list">Aggiungi a lista</h2></div>
+    <div id="list-picker-options" class="list-picker-options"></div>
+    <button class="secondary-btn full" id="picker-create-list" type="button" data-i18n="create_new_list">Crea nuova lista</button>
+  </dialog>
 
-let lang = localStorage.getItem('ba-lang') || 'it';
-
-function t(key){ return (T[lang]||T.it)[key] || key }
-
-function applyLang(){
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-t]').forEach(el=>{
-    const key = el.getAttribute('data-t');
-    const val = T[lang][key];
-    if(val !== undefined) el.textContent = val;
-  });
-  document.querySelectorAll('[data-t-ph]').forEach(el=>{
-    const key = el.getAttribute('data-t-ph');
-    const val = T[lang][key];
-    if(val) el.placeholder = val;
-  });
-  const si = document.getElementById('search-input');
-  if(si) si.placeholder = t('search_ph');
-  document.getElementById('btn-it').classList.toggle('active', lang==='it');
-  document.getElementById('btn-en').classList.toggle('active', lang==='en');
-  const pls = document.getElementById('pref-lang-select');
-  if(pls) pls.value = lang;
-  renderRecipes();
-  renderSpirits();
-  renderPlaylists();
-  updateStats();
-}
-
-function setLang(l){
-  lang = l;
-  localStorage.setItem('ba-lang', l);
-  applyLang();
-}
-
-/* ══════════════════════════════════════════════
-   DATA
-══════════════════════════════════════════════ */
-const RECIPES_BASE = [
-  {id:'negroni',type:'classic',name:{it:'Negroni',en:'Negroni'},origin:'italy',glass:{it:'Rocks',en:'Rocks'},abv:24,
-   ingredients:[{a:'30ml',n:{it:'Gin',en:'Gin'}},{a:'30ml',n:{it:'Vermouth Rosso',en:'Sweet Vermouth'}},{a:'30ml',n:{it:'Campari',en:'Campari'}}],
-   technique:'stirred',garnish:{it:'Scorza d\'arancia',en:'Orange peel'},
-   notes:{it:'Creato a Firenze nel 1919 dal Conte Camillo Negroni.',en:'Created in Florence in 1919 by Count Camillo Negroni.'}},
-  {id:'margarita',type:'cocktail',name:{it:'Margarita',en:'Margarita'},origin:'mexico',glass:{it:'Coppa Margarita',en:'Margarita Glass'},abv:22,
-   ingredients:[{a:'50ml',n:{it:'Tequila Blanco',en:'Tequila Blanco'}},{a:'25ml',n:{it:'Triple Sec',en:'Triple Sec'}},{a:'25ml',n:{it:'Succo di Lime',en:'Lime Juice'}}],
-   technique:'shaken',garnish:{it:'Bordo di sale',en:'Salt rim'},
-   notes:{it:'Uno dei cocktail più famosi al mondo, con mille varianti regionali.',en:'One of the world\'s most famous cocktails with countless regional variations.'}},
-  {id:'mojito',type:'longdrink',name:{it:'Mojito',en:'Mojito'},origin:'cuba',glass:{it:'Highball',en:'Highball'},abv:12,
-   ingredients:[{a:'50ml',n:{it:'Rum Bianco',en:'White Rum'}},{a:'25ml',n:{it:'Succo di Lime',en:'Lime Juice'}},{a:'20ml',n:{it:'Sciroppo di Zucchero',en:'Simple Syrup'}},{a:'8 foglie',n:{it:'Menta',en:'Mint'}},{a:'QS',n:{it:'Soda',en:'Soda Water'}}],
-   technique:'built',garnish:{it:'Menta e lime',en:'Mint and lime'},
-   notes:{it:'Iconico cocktail cubano, fresco e agrumato.',en:'Iconic Cuban cocktail, fresh and citrusy.'}},
-  {id:'espresso-martini',type:'cocktail',name:{it:'Espresso Martini',en:'Espresso Martini'},origin:'uk',glass:{it:'Coppa Martini',en:'Martini Glass'},abv:20,
-   ingredients:[{a:'50ml',n:{it:'Vodka',en:'Vodka'}},{a:'25ml',n:{it:'Kahlúa',en:'Kahlúa'}},{a:'30ml',n:{it:'Espresso Freddo',en:'Cold Espresso'}}],
-   technique:'shaken',garnish:{it:'3 chicchi di caffè',en:'3 coffee beans'},
-   notes:{it:'Inventato da Dick Bradsell a Londra negli anni \'80.',en:'Invented by Dick Bradsell in London in the 1980s.'}},
-  {id:'aperol-spritz',type:'longdrink',name:{it:'Aperol Spritz',en:'Aperol Spritz'},origin:'italy',glass:{it:'Calice da Vino',en:'Wine Glass'},abv:8,
-   ingredients:[{a:'90ml',n:{it:'Prosecco',en:'Prosecco'}},{a:'60ml',n:{it:'Aperol',en:'Aperol'}},{a:'30ml',n:{it:'Soda',en:'Soda Water'}}],
-   technique:'built',garnish:{it:'Fetta d\'arancia',en:'Orange slice'},
-   notes:{it:'Simbolo dell\'aperitivo italiano, nato in Veneto.',en:'Symbol of Italian aperitivo culture, born in Veneto.'}},
-  {id:'daiquiri',type:'classic',name:{it:'Daiquiri',en:'Daiquiri'},origin:'cuba',glass:{it:'Coppa da Cocktail',en:'Cocktail Coupe'},abv:20,
-   ingredients:[{a:'60ml',n:{it:'Rum Bianco',en:'White Rum'}},{a:'30ml',n:{it:'Succo di Lime',en:'Lime Juice'}},{a:'15ml',n:{it:'Sciroppo di Zucchero',en:'Simple Syrup'}}],
-   technique:'shaken',garnish:{it:'Nessuna',en:'None'},
-   notes:{it:'Un classico dell\'era proibizionismo, semplicità al suo massimo.',en:'A prohibition-era classic, simplicity at its finest.'}},
-  {id:'old-fashioned',type:'classic',name:{it:'Old Fashioned',en:'Old Fashioned'},origin:'usa',glass:{it:'Rocks',en:'Rocks'},abv:32,
-   ingredients:[{a:'60ml',n:{it:'Bourbon o Rye',en:'Bourbon or Rye'}},{a:'5ml',n:{it:'Sciroppo Semplice',en:'Simple Syrup'}},{a:'2 dash',n:{it:'Angostura Bitters',en:'Angostura Bitters'}}],
-   technique:'stirred',garnish:{it:'Scorza d\'arancia e ciliegia',en:'Orange peel and cherry'},
-   notes:{it:'Forse il cocktail più antico documentato, risale al 1800.',en:'Perhaps the oldest documented cocktail, dating to 1800.'}},
-  {id:'hugo',type:'longdrink',name:{it:'Hugo',en:'Hugo'},origin:'italy',glass:{it:'Calice da Vino',en:'Wine Glass'},abv:7,
-   ingredients:[{a:'90ml',n:{it:'Prosecco',en:'Prosecco'}},{a:'30ml',n:{it:'Sciroppo di Sambuco',en:'Elderflower Syrup'}},{a:'30ml',n:{it:'Soda',en:'Soda Water'}},{a:'4 foglie',n:{it:'Menta',en:'Mint'}}],
-   technique:'built',garnish:{it:'Menta e lime',en:'Mint and lime'},
-   notes:{it:'Nato in Alto Adige, diventato popolarissimo in tutta Italia.',en:'Born in South Tyrol, hugely popular across Italy.'}},
-  {id:'cosmopolitan',type:'cocktail',name:{it:'Cosmopolitan',en:'Cosmopolitan'},origin:'usa',glass:{it:'Coppa Martini',en:'Martini Glass'},abv:19,
-   ingredients:[{a:'40ml',n:{it:'Vodka al Limone',en:'Citrus Vodka'}},{a:'15ml',n:{it:'Triple Sec',en:'Triple Sec'}},{a:'30ml',n:{it:'Succo di Mirtillo',en:'Cranberry Juice'}},{a:'10ml',n:{it:'Succo di Lime',en:'Lime Juice'}}],
-   technique:'shaken',garnish:{it:'Scorza di lime',en:'Lime twist'},
-   notes:{it:'Reso famoso da Sex and the City. Elegante e femminile.',en:'Made famous by Sex and the City. Elegant and refined.'}},
-  {id:'b52',type:'shot',name:{it:'B52',en:'B-52'},origin:'usa',glass:{it:'Shot',en:'Shot Glass'},abv:34,
-   ingredients:[{a:'15ml',n:{it:'Kahlúa',en:'Kahlúa'}},{a:'15ml',n:{it:'Baileys',en:'Baileys'}},{a:'15ml',n:{it:'Grand Marnier',en:'Grand Marnier'}}],
-   technique:'built',garnish:{it:'Nessuna',en:'None'},
-   notes:{it:'Shot a strati iconico, versare delicatamente con cucchiaino.',en:'Iconic layered shot, pour gently over a spoon.'}},
-];
-
-const SPIRITS_BASE = [
-  {id:'gin',icon:'🫙',name:{it:'Gin',en:'Gin'},origin:{it:'Paesi Bassi / UK',en:'Netherlands / UK'},abv:'37.5–47%',
-   history:{it:'Nato in Olanda nel XVII secolo come medicinale, perfezionato in Inghilterra. Distillato da grano o malto con bacche di ginepro e botanici.',en:'Born in the Netherlands in the 17th century as medicine, perfected in England. Distilled from grain with juniper berries and botanicals.'},
-   taste:['🌲 Ginepro','🍋 Agrumi','🌸 Floreale','🌿 Erbaceo'],
-   cocktails:{it:'Negroni, Gin Tonic, Martini, Tom Collins',en:'Negroni, Gin & Tonic, Martini, Tom Collins'},
-   tags:['botanico','versatile','classico']},
-  {id:'rum',icon:'🥃',name:{it:'Rum',en:'Rum'},origin:{it:'Caraibi',en:'Caribbean'},abv:'37.5–55%',
-   history:{it:'Prodotto dalla melassa di canna da zucchero, distillato nei Caraibi dal XVII secolo. Bianco, oro, invecchiato: infinite sfumature.',en:'Made from sugarcane molasses, distilled in the Caribbean since the 17th century. White, gold, aged: infinite nuances.'},
-   taste:['🍬 Dolce','🌴 Tropicale','🍫 Speziato','🪵 Legnoso'],
-   cocktails:{it:'Mojito, Daiquiri, Dark & Stormy, Piña Colada',en:'Mojito, Daiquiri, Dark & Stormy, Piña Colada'},
-   tags:['dolce','tropicale','versatile']},
-  {id:'whisky',icon:'🥃',name:{it:'Whisky',en:'Whisky'},origin:{it:'Scozia / Irlanda / USA',en:'Scotland / Ireland / USA'},abv:'40–63%',
-   history:{it:'Distillato di cereali invecchiato in botti di legno. Scotch, Bourbon, Rye, Irish: tradizioni diverse, caratteri unici.',en:'Grain distillate aged in wooden casks. Scotch, Bourbon, Rye, Irish: different traditions, unique characters.'},
-   taste:['🪵 Torbato','🍯 Mielato','🍎 Fruttato','🌶 Speziato'],
-   cocktails:{it:'Old Fashioned, Manhattan, Whisky Sour, Rob Roy',en:'Old Fashioned, Manhattan, Whisky Sour, Rob Roy'},
-   tags:['invecchiato','complesso','premium']},
-  {id:'vodka',icon:'🍸',name:{it:'Vodka',en:'Vodka'},origin:{it:'Russia / Polonia',en:'Russia / Poland'},abv:'37.5–40%',
-   history:{it:'Distillato neutro di grano, segale o patate. La parola russa significa "acquetta". Versatilità assoluta.',en:'Neutral distillate of wheat, rye or potatoes. The Russian word means "little water". Absolute versatility.'},
-   taste:['💧 Neutro','🌾 Cereale','❄️ Pulito','🌶 Lieve Calore'],
-   cocktails:{it:'Cosmopolitan, Espresso Martini, Moscow Mule, Bloody Mary',en:'Cosmopolitan, Espresso Martini, Moscow Mule, Bloody Mary'},
-   tags:['neutro','versatile','mixology']},
-  {id:'tequila',icon:'🌵',name:{it:'Tequila',en:'Tequila'},origin:{it:'Messico (Jalisco)',en:'Mexico (Jalisco)'},abv:'38–55%',
-   history:{it:'Prodotta dall\'agave blu Weber solo in Messico. DO protetta. Blanco, Reposado, Añejo secondo l\'invecchiamento.',en:'Made from Blue Weber agave only in Mexico. Protected DO. Blanco, Reposado, Añejo according to aging.'},
-   taste:['🌵 Agave','🍋 Agrumi','🌍 Terroso','🌶 Pepe'],
-   cocktails:{it:'Margarita, Paloma, Tequila Sunrise, Tommy\'s Margarita',en:'Margarita, Paloma, Tequila Sunrise, Tommy\'s Margarita'},
-   tags:['agave','messico','DO']},
-  {id:'vermouth',icon:'🍷',name:{it:'Vermouth',en:'Vermouth'},origin:{it:'Italia / Francia',en:'Italy / France'},abv:'15–22%',
-   history:{it:'Vino aromatizzato con assenzio e botanici. Rosso (dolce), Bianco, Dry. Fondamentale nei cocktail classici.',en:'Wine aromatised with wormwood and botanicals. Red (sweet), White, Dry. Essential in classic cocktails.'},
-   taste:['🌿 Erbaceo','🍷 Tannico','🌸 Floreale','🍬 Amaro-Dolce'],
-   cocktails:{it:'Negroni, Manhattan, Martini, Americano',en:'Negroni, Manhattan, Martini, Americano'},
-   tags:['vino','aromatico','classico']},
-];
-
-let recipes = JSON.parse(localStorage.getItem('ba-recipes')||'null') || [...RECIPES_BASE];
-let playlists = JSON.parse(localStorage.getItem('ba-pl')||'null') || [
-  {id:'pl1',name:'Preferiti',emoji:'⭐',ids:['negroni','mojito']},
-  {id:'pl2',name:'Aperitivo',emoji:'🍋',ids:['aperol-spritz','hugo','negroni']},
-];
-let savedIds = JSON.parse(localStorage.getItem('ba-saved')||'[]');
-let profile = JSON.parse(localStorage.getItem('ba-profile')||'null') || {name:'Barman',bio:'',color:'#4a2e0a'};
-let pendingBookmarkId = null;
-let currentSec = 'recipes';
-
-function save(key,val){ localStorage.setItem(key, JSON.stringify(val)) }
-
-/* ══════════════════════════════════════════════
-   NAVIGATION
-══════════════════════════════════════════════ */
-function goSec(name, btn){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.bnav-item').forEach(b=>b.classList.remove('active'));
-  document.getElementById('sec-'+name).classList.add('active');
-  const active = btn || document.querySelector(`.bnav-item[data-sec="${name}"]`);
-  if(active) active.classList.add('active');
-  currentSec = name;
-  if(name==='recipes') renderRecipes();
-  if(name==='spirits') renderSpirits();
-  if(name==='playlists') renderPlaylists();
-  if(name==='profile') renderProfile();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-/* ══════════════════════════════════════════════
-   RECIPES
-══════════════════════════════════════════════ */
-function rName(r){ return typeof r.name==='object' ? (r.name[lang]||r.name.it||r.name.en||'') : (r.name||'') }
-function rGlass(r){ return typeof r.glass==='object' ? (r.glass[lang]||r.glass.it||r.glass.en||'') : (r.glass||'') }
-function rNotes(r){ return typeof r.notes==='object' ? (r.notes[lang]||r.notes.it||r.notes.en||'') : (r.notes||'') }
-function rGarnish(r){ return typeof r.garnish==='object' ? (r.garnish[lang]||r.garnish.it||r.garnish.en||'') : (r.garnish||'') }
-function rTech(r){ 
-  const tc = T[lang].techniques||T.it.techniques;
-  return tc[r.technique] || r.technique || '';
-}
-function rIngLine(r){
-  return (r.ingredients||[]).map(i=>{
-    const n = typeof i.n==='object' ? (i.n[lang]||i.n.it||i.n.en||'') : (i.n||'');
-    return `${i.a} ${n}`;
-  }).join(', ');
-}
-
-function typeBadge(type){
-  const map={cocktail:'badge-cocktail',shot:'badge-shot',longdrink:'badge-longdrink',mocktail:'badge-mocktail',classic:'badge-classic'};
-  const labels={cocktail:'Cocktail',shot:'Shot',longdrink:'Long',mocktail:'Mocktail',classic:'Classic'};
-  return `<span class="type-badge ${map[type]||'badge-cocktail'}">${labels[type]||type}</span>`;
-}
-
-function renderRecipes(filtered){
-  const list = filtered !== undefined ? filtered : recipes;
-  const grid = document.getElementById('recipe-grid');
-  const lbl = document.getElementById('recipe-count-label');
-  if(lbl) lbl.textContent = `${list.length} ${t('recipes_count')}`;
-  if(!list.length){
-    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><i class="fas fa-martini-glass-citrus"></i><p>${t('empty_recipes')}</p></div>`;
-    return;
-  }
-  grid.innerHTML = list.map(r=>{
-    const saved = savedIds.includes(r.id);
-    const isAI = r._ai;
-    return `<div class="recipe-card${isAI?' ai-card':''}" onclick="openRecipe('${r.id}')">
-      <div class="card-header">
-        <div class="card-type">${r.type}${isAI?`<span class="ai-tag">AI</span>`:''}</div>
-        <div class="card-name">${rName(r)}</div>
-        <div class="card-origin"><i class="fas fa-location-dot" style="font-size:.65rem"></i>${t('origins')[r.origin]||r.origin||''}</div>
-      </div>
-      <div class="card-body">
-        <div class="card-glass"><i class="fas fa-wine-glass" style="font-size:.65rem"></i>${rGlass(r)}</div>
-        <div class="card-ing">${rIngLine(r)}</div>
-      </div>
-      <div class="card-actions">
-        ${typeBadge(r.type)}
-        <div style="display:flex;gap:.35rem;align-items:center">
-          <button class="bookmark-btn${saved?' active':''}" onclick="event.stopPropagation();toggleBookmark('${r.id}',this)" title="${saved?'Rimuovi':'Salva'}">
-            <i class="fa${saved?'s':'r'} fa-bookmark"></i>
-          </button>
-          <button class="bookmark-btn" onclick="event.stopPropagation();openPLModal('${r.id}')" title="${t('add_to_list')}">
-            <i class="fas fa-plus-circle" style="font-size:.85rem"></i>
-          </button>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function openRecipe(id){
-  const r = recipes.find(x=>x.id===id);
-  if(!r) return;
-  document.getElementById('d-type').textContent = r.type + (r._ai?' (AI)':'');
-  document.getElementById('d-name').textContent = rName(r);
-  document.getElementById('d-origin').textContent = '🌍 '+(t('origins')[r.origin]||r.origin||'');
-  document.getElementById('d-glass').textContent = '🥂 '+rGlass(r);
-  document.getElementById('d-abv').textContent = r.abv ? `🍶 ${r.abv}% ABV` : '';
-  const ings = (r.ingredients||[]).map(i=>{
-    const n = typeof i.n==='object'?(i.n[lang]||i.n.it||i.n.en||''):(i.n||'');
-    return `<div class="ing-item"><span class="ing-amount">${i.a}</span><span>${n}</span></div>`;
-  }).join('');
-  document.getElementById('d-ingredients').innerHTML = ings;
-  const tc = T[lang].techniques||T.it.techniques;
-  document.getElementById('d-technique').innerHTML = (r.techniques||[r.technique]).filter(Boolean).map(tch=>`<span class="tech-tag">${tc[tch]||tch}</span>`).join('');
-  document.getElementById('d-garnish').textContent = rGarnish(r);
-  document.getElementById('d-notes').textContent = rNotes(r);
-  openOverlay('recipe-overlay');
-}
-
-function toggleBookmark(id, btn){
-  const idx = savedIds.indexOf(id);
-  if(idx>-1){ savedIds.splice(idx,1); showToast(t('toast_removed')); }
-  else { savedIds.push(id); showToast(t('toast_saved')); }
-  save('ba-saved', savedIds);
-  if(btn){
-    const saved = savedIds.includes(id);
-    btn.classList.toggle('active', saved);
-    btn.innerHTML = `<i class="fa${saved?'s':'r'} fa-bookmark"></i>`;
-  }
-  updateStats();
-}
-
-/* ══════════════════════════════════════════════
-   SEARCH
-══════════════════════════════════════════════ */
-let searchTimer = null;
-const searchInput = document.getElementById('search-input');
-const searchDrop = document.getElementById('search-drop');
-
-searchInput.addEventListener('input', ()=>{
-  clearTimeout(searchTimer);
-  const q = searchInput.value.trim().toLowerCase();
-  if(!q){ searchDrop.classList.remove('open'); renderRecipes(); return; }
-  const local = recipes.filter(r=>rName(r).toLowerCase().includes(q) || rIngLine(r).toLowerCase().includes(q));
-  renderRecipes(local);
-  // debounce AI
-  searchTimer = setTimeout(()=>doAISearch(q, local), 900);
-  // show local in dropdown
-  showDrop(local, q, false);
-});
-
-searchInput.addEventListener('keydown', e=>{
-  if(e.key==='Escape'){ searchInput.value=''; searchDrop.classList.remove('open'); renderRecipes(); }
-});
-
-document.addEventListener('click', e=>{
-  if(!e.target.closest('.smart-search-wrap')) searchDrop.classList.remove('open');
-});
-
-function showDrop(local, q, loading){
-  const badge = document.getElementById('search-badge');
-  if(loading){ badge.className='s-badge searching'; badge.textContent='…'; }
-  else { badge.className='s-badge online'; badge.textContent='AI'; }
-  let html = '';
-  if(local.length){
-    html += `<div class="drop-label">${t('nav_recipes')}</div>`;
-    html += local.slice(0,4).map(r=>`<div class="drop-item" onclick="searchInput.value='${rName(r)}';searchDrop.classList.remove('open');renderRecipes(recipes.filter(x=>rName(x).toLowerCase().includes('${rName(r).toLowerCase()}')))">
-      <div><div class="drop-name">${rName(r)}</div><div class="drop-meta">${rGlass(r)} · ${rTech(r)}</div></div>
-      <span class="drop-pill drop-local">locale</span>
-    </div>`).join('');
-  }
-  if(loading){ html += `<div class="drop-item" style="color:var(--muted);font-size:.82rem"><span class="spinner"></span> Ricerca AI in corso…</div>`; }
-  searchDrop.innerHTML = html;
-  searchDrop.classList.toggle('open', html.length > 0);
-}
-
-async function doAISearch(q, local){
-  const badge = document.getElementById('search-badge');
-  const aiToggle = document.getElementById('toggle-ai');
-  if(aiToggle && !aiToggle.checked) return;
-  // check if already have it
-  if(local.some(r=>rName(r).toLowerCase()===q)) return;
-  badge.className='s-badge searching'; badge.textContent='…';
-  showDrop(local, q, true);
-  try{
-    const resp = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system:`Sei un esperto barman. Quando l'utente cerca un cocktail, rispondi SOLO con un JSON valido con questa struttura (nessun testo aggiuntivo, nessun backtick markdown):
-{"id":"slug-senza-spazi","type":"cocktail|shot|longdrink|mocktail|classic","name":{"it":"...","en":"..."},"origin":"italy|uk|usa|cuba|france|spain|germany|mexico|brazil|world","glass":{"it":"...","en":"..."},"abv":20,"ingredients":[{"a":"50ml","n":{"it":"...","en":"..."}}],"technique":"shaken|stirred|built|blended","garnish":{"it":"...","en":"..."},"notes":{"it":"...","en":"..."}}
-Se non è un cocktail o non esiste, rispondi con: {"error":"not_found"}`,
-        messages:[{role:'user',content:`Ricetta per: ${q}`}]
-      })
-    });
-    const data = await resp.json();
-    const txt = (data.content||[]).map(b=>b.text||'').join('');
-    const clean = txt.replace(/```json|```/g,'').trim();
-    const parsed = JSON.parse(clean);
-    if(parsed.error){ badge.className='s-badge online'; badge.textContent='AI'; showDrop(local,q,false); return; }
-    parsed._ai = true;
-    // check not duplicate
-    if(!recipes.find(r=>r.id===parsed.id)){
-      recipes.unshift(parsed);
-      save('ba-recipes', recipes);
-      document.getElementById('ai-banner-name').textContent = rName(parsed);
-      document.getElementById('ai-banner').classList.add('show');
-      setTimeout(()=>document.getElementById('ai-banner').classList.remove('show'), 4000);
-    }
-    const filtered = recipes.filter(r=>rName(r).toLowerCase().includes(q)||rIngLine(r).toLowerCase().includes(q));
-    renderRecipes(filtered);
-    badge.className='s-badge online'; badge.textContent='AI';
-    showDrop(filtered, q, false);
-  }catch(e){
-    badge.className='s-badge online'; badge.textContent='AI';
-    showDrop(local, q, false);
-  }
-}
-
-/* ══════════════════════════════════════════════
-   SPIRITS
-══════════════════════════════════════════════ */
-function renderSpirits(){
-  const grid = document.getElementById('spirit-grid');
-  grid.innerHTML = SPIRITS_BASE.map(s=>`
-    <div class="spirit-card" onclick="openSpirit('${s.id}')">
-      <div class="sh">
-        <div class="spirit-icon">${s.icon}</div>
-        <div class="spirit-name">${typeof s.name==='object'?(s.name[lang]||s.name.it):s.name}</div>
-        <div class="spirit-origin">${typeof s.origin==='object'?(s.origin[lang]||s.origin.it):s.origin} · ${s.abv}</div>
-      </div>
-      <div class="spirit-body">${s.taste.slice(0,3).join(' · ')}</div>
-      <div class="spirit-tags">${s.tags.map(tg=>`<span class="spirit-tag">${tg}</span>`).join('')}</div>
-    </div>`).join('');
-}
-
-function openSpirit(id){
-  const s = SPIRITS_BASE.find(x=>x.id===id);
-  if(!s) return;
-  document.getElementById('s-emoji').textContent = s.icon;
-  document.getElementById('s-name').textContent = typeof s.name==='object'?(s.name[lang]||s.name.it):s.name;
-  document.getElementById('s-origin').textContent = (typeof s.origin==='object'?(s.origin[lang]||s.origin.it):s.origin)+' · '+s.abv;
-  document.getElementById('s-history').textContent = typeof s.history==='object'?(s.history[lang]||s.history.it):s.history;
-  document.getElementById('s-taste').innerHTML = s.taste.map(t=>`<span class="taste-chip">${t}</span>`).join('');
-  document.getElementById('s-cocktails').textContent = typeof s.cocktails==='object'?(s.cocktails[lang]||s.cocktails.it):s.cocktails;
-  document.getElementById('s-abv2').textContent = s.abv;
-  openOverlay('spirit-overlay');
-}
-
-/* ══════════════════════════════════════════════
-   PLAYLISTS
-══════════════════════════════════════════════ */
-let activePLId = null;
-
-function renderPlaylists(){
-  const grid = document.getElementById('pl-grid');
-  const detail = document.getElementById('pl-detail');
-  const lbl = document.getElementById('pl-count-label');
-  if(lbl) lbl.textContent = `${playlists.length} ${t('lists_count')}`;
-  if(activePLId){ grid.style.display='none'; detail.style.display='block'; renderPLDetail(activePLId); }
-  else { grid.style.display=''; detail.style.display='none'; }
-  grid.innerHTML = playlists.map(pl=>{
-    const items = pl.ids.map(id=>recipes.find(r=>r.id===id)).filter(Boolean);
-    return `<div class="pl-card" onclick="openPLDetail('${pl.id}')">
-      <div class="pl-card-top">
-        <div class="pl-card-emoji">${pl.emoji||'📋'}</div>
-        <div class="pl-card-name">${pl.name}</div>
-        <div class="pl-card-count">${items.length} ${t('recipes_count')}</div>
-      </div>
-      <div class="pl-card-preview">${items.slice(0,2).map(r=>rName(r)).join(', ')+(items.length>2?'…':'') || '—'}</div>
-      <div class="pl-card-actions">
-        <span style="font-size:.65rem;color:var(--muted)">${pl.emoji||'📋'}</span>
-        <button class="btn-outline" style="font-size:.65rem;padding:.2rem .55rem" onclick="event.stopPropagation();deletePL('${pl.id}')"><i class="fas fa-trash" style="font-size:.65rem"></i></button>
-      </div>
-    </div>`;
-  }).join('') || `<div class="empty" style="grid-column:1/-1"><i class="fas fa-list-ul"></i><p>${t('empty_list')}</p></div>`;
-}
-
-function openPLDetail(id){
-  activePLId = id;
-  document.getElementById('pl-grid').style.display='none';
-  document.getElementById('pl-detail').style.display='block';
-  renderPLDetail(id);
-}
-
-function renderPLDetail(id){
-  const pl = playlists.find(p=>p.id===id);
-  if(!pl) return;
-  document.getElementById('pl-detail-title').textContent = `${pl.emoji||''} ${pl.name}`;
-  const items = pl.ids.map(rid=>recipes.find(r=>r.id===rid)).filter(Boolean);
-  document.getElementById('pl-detail-list').innerHTML = items.length
-    ? items.map(r=>`<div class="pl-strip">
-        <span>${rName(r)}</span>
-        <button class="strip-rm" onclick="removeFromPL('${id}','${r.id}')"><i class="fas fa-times"></i></button>
-      </div>`).join('')
-    : `<div class="pl-strip" style="color:var(--muted);justify-content:center">${t('empty_list')}</div>`;
-}
-
-function closePLDetail(){ activePLId=null; renderPlaylists(); }
-
-function removeFromPL(plId, recId){
-  const pl = playlists.find(p=>p.id===plId);
-  if(!pl) return;
-  pl.ids = pl.ids.filter(i=>i!==recId);
-  save('ba-pl', playlists);
-  showToast(t('toast_removed'));
-  renderPLDetail(plId);
-}
-
-function deletePL(id){
-  playlists = playlists.filter(p=>p.id!==id);
-  save('ba-pl', playlists);
-  renderPlaylists();
-}
-
-function openNewPL(){
-  const name = prompt(t('new_list_name')||'Nome lista:');
-  if(!name) return;
-  const emojis=['📋','⭐','🍹','🎉','🌙','🔥','💎','🌿'];
-  playlists.push({id:'pl'+Date.now(),name,emoji:emojis[Math.floor(Math.random()*emojis.length)],ids:[]});
-  save('ba-pl', playlists);
-  renderPlaylists();
-  updateStats();
-}
-
-/* ══════════════════════════════════════════════
-   PLAYLIST MODAL
-══════════════════════════════════════════════ */
-function openPLModal(recipeId){
-  pendingBookmarkId = recipeId;
-  const opts = document.getElementById('pl-modal-options');
-  const ni = document.getElementById('pl-new-name');
-  ni.placeholder = t('new_list_name');
-  opts.innerHTML = playlists.map(pl=>`
-    <div class="pl-option" onclick="addToPL('${pl.id}')">
-      <span>${pl.emoji||'📋'}</span> <span>${pl.name}</span>
-      ${pl.ids.includes(recipeId)?'<i class="fas fa-check" style="margin-left:auto;color:var(--gold);font-size:.75rem"></i>':''}
-    </div>`).join('');
-  document.getElementById('pl-modal').classList.add('open');
-}
-
-function closePLModal(){
-  document.getElementById('pl-modal').classList.remove('open');
-  pendingBookmarkId = null;
-}
-
-function addToPL(plId){
-  const pl = playlists.find(p=>p.id===plId);
-  if(!pl||!pendingBookmarkId) return;
-  if(!pl.ids.includes(pendingBookmarkId)) pl.ids.push(pendingBookmarkId);
-  save('ba-pl', playlists);
-  showToast(t('toast_added'));
-  closePLModal();
-  updateStats();
-}
-
-function createPLfromModal(){
-  const ni = document.getElementById('pl-new-name');
-  const name = ni.value.trim();
-  if(!name) return;
-  const emojis=['📋','⭐','🍹','🎉'];
-  const newPL = {id:'pl'+Date.now(),name,emoji:emojis[Math.floor(Math.random()*emojis.length)],ids:[]};
-  if(pendingBookmarkId) newPL.ids.push(pendingBookmarkId);
-  playlists.push(newPL);
-  save('ba-pl', playlists);
-  ni.value='';
-  showToast(t('toast_added'));
-  closePLModal();
-  updateStats();
-}
-
-/* ══════════════════════════════════════════════
-   PROFILE
-══════════════════════════════════════════════ */
-const TYPES = ['cocktail','classic','longdrink','shot','mocktail'];
-let favTypes = JSON.parse(localStorage.getItem('ba-fav-types')||'[]');
-
-function renderProfile(){
-  document.getElementById('profile-name-display').textContent = profile.name||'Barman';
-  document.querySelector('.profile-bio').textContent = profile.bio || t('profile_bio');
-  document.getElementById('profile-banner').style.background = `linear-gradient(135deg,#1A1209,${profile.color||'#4a2e0a'})`;
-  updateStats();
-  const ft = document.getElementById('fav-types');
-  ft.innerHTML = TYPES.map(tp=>`<span class="fav-type${favTypes.includes(tp)?' active':''}" onclick="toggleFav('${tp}',this)">${tp}</span>`).join('');
-}
-
-function toggleFav(tp, el){
-  const idx = favTypes.indexOf(tp);
-  if(idx>-1) favTypes.splice(idx,1); else favTypes.push(tp);
-  el.classList.toggle('active', favTypes.includes(tp));
-  save('ba-fav-types', favTypes);
-}
-
-function updateStats(){
-  const ss = document.getElementById('stat-saved');
-  const sl = document.getElementById('stat-lists');
-  if(ss) ss.textContent = savedIds.length;
-  if(sl) sl.textContent = playlists.length;
-}
-
-function openEditProfile(){
-  document.getElementById('ep-name').value = profile.name||'';
-  document.getElementById('ep-bio').value = profile.bio||'';
-  document.getElementById('ep-color').value = profile.color||'#4a2e0a';
-  document.getElementById('edit-profile-overlay').classList.add('open');
-}
-
-function saveProfile(){
-  profile.name = document.getElementById('ep-name').value.trim()||'Barman';
-  profile.bio = document.getElementById('ep-bio').value.trim();
-  profile.color = document.getElementById('ep-color').value;
-  save('ba-profile', profile);
-  closeForm('edit-profile-overlay');
-  renderProfile();
-  showToast('✓ Profilo aggiornato');
-}
-
-/* ══════════════════════════════════════════════
-   ADD RECIPE FORM
-══════════════════════════════════════════════ */
-// (FAB is removed – form opened from elsewhere if needed)
-function saveNewRecipe(){
-  const name = document.getElementById('f-name').value.trim();
-  if(!name){ showToast('Inserisci un nome'); return; }
-  const ings = document.getElementById('f-ingredients').value.split('\n')
-    .filter(l=>l.trim()).map(l=>{
-      const m = l.match(/^([\d\w.\/]+(?:ml|cl|oz|g|dash|tsp|tbsp|foglie|pz)?)\s+(.+)$/i);
-      return m ? {a:m[1],n:{it:m[2],en:m[2]}} : {a:'',n:{it:l.trim(),en:l.trim()}};
-    });
-  const newR = {
-    id:'custom-'+Date.now(),
-    type: document.getElementById('f-type').value,
-    name:{it:name,en:name},
-    origin: document.getElementById('f-origin').value.toLowerCase()||'world',
-    glass:{it:document.getElementById('f-glass').value,en:document.getElementById('f-glass').value},
-    abv: parseFloat(document.getElementById('f-abv').value)||0,
-    ingredients: ings,
-    technique: document.getElementById('f-technique').value,
-    garnish:{it:document.getElementById('f-garnish').value,en:document.getElementById('f-garnish').value},
-    notes:{it:document.getElementById('f-notes').value,en:document.getElementById('f-notes').value},
-    _custom:true
-  };
-  recipes.unshift(newR);
-  save('ba-recipes', recipes);
-  closeForm('add-recipe-overlay');
-  renderRecipes();
-  showToast(t('toast_saved'));
-}
-
-/* ══════════════════════════════════════════════
-   OVERLAYS / FORMS
-══════════════════════════════════════════════ */
-function openOverlay(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
-function closeOverlay(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
-function closeForm(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
-
-document.querySelectorAll('.overlay').forEach(o=>{
-  o.addEventListener('click', e=>{ if(e.target===o) closeOverlay(o.id); });
-});
-document.querySelectorAll('.form-overlay').forEach(o=>{
-  o.addEventListener('click', e=>{ if(e.target===o) closeForm(o.id); });
-});
-document.getElementById('pl-modal').addEventListener('click', e=>{
-  if(e.target===document.getElementById('pl-modal')) closePLModal();
-});
-
-/* ══════════════════════════════════════════════
-   TOAST
-══════════════════════════════════════════════ */
-let toastTimer;
-function showToast(msg){
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>toast.classList.remove('show'), 2400);
-}
-
-/* ══════════════════════════════════════════════
-   DARK MODE
-══════════════════════════════════════════════ */
-function toggleDark(cb){
-  document.documentElement.classList.toggle('dark', cb.checked);
-  localStorage.setItem('ba-dark', cb.checked?'1':'0');
-}
-if(localStorage.getItem('ba-dark')==='1'){
-  document.getElementById('toggle-dark').checked=true;
-}
-
-/* ══════════════════════════════════════════════
-   ONLINE STATUS
-══════════════════════════════════════════════ */
-function updateOnline(){
-  const d = document.getElementById('online-dot');
-  d.classList.toggle('offline', !navigator.onLine);
-  d.title = navigator.onLine ? 'Online' : 'Offline';
-}
-window.addEventListener('online', updateOnline);
-window.addEventListener('offline', updateOnline);
-updateOnline();
-
-/* ══════════════════════════════════════════════
-   PWA INSTALL
-══════════════════════════════════════════════ */
-let deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', e=>{
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('install-bar').classList.add('show');
-});
-document.getElementById('install-btn').addEventListener('click', async ()=>{
-  if(!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const result = await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  document.getElementById('install-bar').classList.remove('show');
-});
-window.addEventListener('appinstalled', ()=>{
-  document.getElementById('install-bar').classList.remove('show');
-});
-
-/* iOS instructions */
-const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !('MSStream' in window);
-const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-if(isIOS && !isStandalone && !localStorage.getItem('ba-ios-dismiss')){
-  const bar = document.getElementById('install-bar');
-  bar.querySelector('[data-t="install_sub"]').textContent = 'Tocca 󰤟 → "Aggiungi a schermata Home"';
-  bar.classList.add('show');
-  bar.querySelector('.ib-btn').style.display='none';
-  bar.querySelector('.ib-dismiss').addEventListener('click',()=>localStorage.setItem('ba-ios-dismiss','1'));
-}
-
-/* ══════════════════════════════════════════════
-   INIT
-══════════════════════════════════════════════ */
-applyLang();
-renderRecipes();
-renderSpirits();
-updateStats();
-</script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
